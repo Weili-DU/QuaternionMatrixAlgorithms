@@ -1,0 +1,4 @@
+sr,paper_beta1_pref,our_best_beta1,paper_lambda_pref,our_best_lambda,paper_rank_pref,our_best_rank
+0.5,1e-4,0.5,~0.07 (middle),0.1,"high SR->40-50, low SR->30-40",10
+0.3,1e-4,0.5,~0.07 (middle),0.3,"high SR->40-50, low SR->30-40",10
+0.1,1e-4,0.5,~0.07 (middle),0.3,"high SR->40-50, low SR->30-40",10

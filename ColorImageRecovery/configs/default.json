@@ -1,0 +1,20 @@
+{
+  "single_run": {
+    "sample_rate": 0.2,
+    "seed": 2025,
+    "beta1": 0.0001,
+    "lambda": 0.07,
+    "rank": 30,
+    "rho": 1.01,
+    "beta_max": 1.0,
+    "tol": 0.0001,
+    "max_iter": 120
+  },
+  "scan": {
+    "seed": 2025,
+    "image_size": 96,
+    "max_iter": 25,
+    "tol": 0.0005
+  }
+}
+

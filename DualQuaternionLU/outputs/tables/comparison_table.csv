@@ -1,0 +1,3 @@
+method,matrix_size,relative_error,fill_ratio,permutation_change_ratio,small_scale_error
+standard_partial_pivot,8,1.895007685990544e-16,1.1818181818181819,0.75,1.2050094369677335e-17
+structure_preserving_no_pivot,8,1.0927433739000473e-10,1.0,0.0,1.2050094369677335e-17

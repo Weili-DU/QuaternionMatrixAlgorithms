@@ -1,0 +1,52 @@
+{
+  "config_used": {
+    "seed": 20250314,
+    "rho": 0.3,
+    "arnold_iters": 5,
+    "arnold_params": [
+      1,
+      1,
+      1,
+      2
+    ],
+    "host_path": "data/host/host.png",
+    "watermark_path": "data/watermark/watermark.png",
+    "outputs": {
+      "figures_dir": "outputs/figures",
+      "tables_dir": "outputs/tables",
+      "logs_dir": "outputs/logs"
+    },
+    "scan": {
+      "rho_values": [
+        0.1,
+        0.2,
+        0.3,
+        0.4
+      ],
+      "arnold_iters": [
+        1,
+        3,
+        5,
+        8
+      ]
+    }
+  },
+  "no_attack_metrics": {
+    "attack": "A0_none",
+    "psnr_host_vs_watermarked": 52.286181272432835,
+    "ssim_host_vs_watermarked": 0.9999611282890459,
+    "nc_wm_vs_extracted": 0.9945031724761498
+  },
+  "best_scan_config": {
+    "rho": 0.4,
+    "arnold_iters": 3,
+    "psnr": 49.005974362541096,
+    "ssim": 0.9999181795358757,
+    "nc": 0.9976482274898819
+  },
+  "paper_target_trend": {
+    "psnr": ">=35",
+    "ssim": "close_to_1",
+    "nc": "close_to_1"
+  }
+}

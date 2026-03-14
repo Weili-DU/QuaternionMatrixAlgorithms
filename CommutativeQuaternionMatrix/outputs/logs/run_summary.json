@@ -1,0 +1,25 @@
+{
+  "example61": {
+    "example": "6.1",
+    "svd_residual": 1.2178088937988185e-14,
+    "gi_residual": 1.2178088937988185e-14,
+    "x_diff_norm": 0.0,
+    "reconstruction_error": 1.3249385016481455e-14,
+    "penrose_e1": 1.3377150891304504e-14,
+    "penrose_e2": 7.935103787557551e-16,
+    "penrose_e3": 5.845251079158341e-15,
+    "penrose_e4": 2.897501305189152e-15,
+    "paper_trend_match": true
+  },
+  "best_config": {
+    "dtype": "float64",
+    "init": "random",
+    "rcond": 1e-08,
+    "tol": 1e-11,
+    "max_iter": 50,
+    "mean_residual": 1.157758739425085e-13,
+    "max_residual": 1.4183830216728377e-13,
+    "mean_time_sec": 0.05691562000429258,
+    "trend_match": true
+  }
+}

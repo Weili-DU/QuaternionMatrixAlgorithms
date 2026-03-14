@@ -1,0 +1,1024 @@
+
+===== PAGE 1 =====
+山西大学学报（自然科学版）47（6） ：1115−1126 ，2024
+Journal of Shanxi University （Nat. Sci. Ed.）
+低秩四元数矩阵分解模型的优化理论及其应用
+郑佳莉 1， 吴玉玲1， 柯艺芬1，2 ，3 *
+， 许小芳1
+（1. 福建师范大学 数学与统计学院， 福建 福州 350117 ；
+2. 福建师范大学 分析数学及应用教育部重点实验室， 福建 福州 350117 ；
+3. 福建省应用数学中心， 福建 福州 350117 ）
+摘 要： 本文研究低秩四元数矩阵分解模型的优化理论及其在彩色图像处理中的应用， 提出四元数梯度下降法及
+其改进算法来求解低秩四元数矩阵分解模型并分析算法的收敛性。通过将该模型应用于彩色图像处理上， 数值结
+果表明所提算法的可行性和有效性。
+关键词：四元数； 低秩四元数矩阵分解模型； 四元数梯度下降法
+中图分类号：O241.6   文献标志码：A   文章编号：0253 -2395（2024 ）06-1115-12
+Optimization Theory of Low Rank Quaternion Matrix Decomposition Model 
+and Its Application
+ZHENG Jiali1, WU Yuling1, KE Yifen1,2,3*
+, XU Xiaofang1
+(1.School of Mathematics and Statistics, Fujian Normal University, Fuzhou 350117, China;
+2.Key Laboratory of Analytical Mathematics and Applications (Ministry of Education), 
+Fujian Normal University, Fuzhou 350117, China;
+3.Center for Applied Mathematics of Fujian Province (FJNU ), Fuzhou 350117, China)
+Abstract: This paper studies the low rank quaternion matrix decomposition model and its application in color image processing. Qua‐
+ternion gradient descent algorithm and its improved version are proposed to solve the low rank quaternion matrix decomposition 
+model. And the convergence of the algorithms is considered. Numerical results on color images show the feasibility and effective ‐
+ness of the proposed algorithms.
+Key words: quaternion; low rank quaternion matrix decomposition model; quaternion gradient descent algorithm
+0 引言 
+四 元 数 矩 阵 在 彩 色 图 像 处 理 中 得 到 了 广 泛 的 应 用 ， 包 括 ： 彩 色 图 像 去 噪 与 修 复 、 彩 色 人 脸 识 别
+以 及 彩 色 图 像 修 复 等 方 面［1-4］。 此 外 ， 四 元 数 矩 阵 在 其 他 工 程 领 域 也 得 到 了 广 泛 地 应 用［5-12 ］。 这 些
+研 究 工 作 中 的 数 学 模 型 可 以 转 化 为 以 四 元 数 矩 阵 为 决 策 变 量 的 优 化 问 题 。
+1996 年 ， 文 献 ［13 ］ 提 出 了 一 种 编 码 纯 四 元 数 ， 其 三 个 虚 部 分 别 表 示RGB（红- 绿 - 蓝） 图 像 的 三
+个 通 道 分 量 。 在 文 献 ［14］ 中 给 出 了 一 些 关 于 四 元 数 和 四 元 数 矩 阵 理 论 的 简 要 证 明 。 此 后 ， 文 献
+DOI：10.13451/j.sxu.ns.2024051
+收稿日期：2023 -12 -06；接受日期：2024 -03-20
+基金项目：国家自然科学基金 （12371378 ；11901098） ； 福建省自然科学基金 （2023J011127 ；2023J01955 ；2020J05034 ）
+作者简介：郑 佳 莉 （2000-） ， 女 ， 福 建 莆 田 人 ， 硕 士 研 究 生 ， 研 究 方 向 为 数 值 代 数 及 其 应 用 。E-mail：zhengjl202203@163.com
+∗  通信作者：柯艺芬 （KE Yifen） ，E-mail：keyifen@fjnu.edu.cn
+引文格式：郑佳莉， 吴玉玲， 柯艺芬， 等. 低秩四元数矩阵分解模型的优化理论及其应用 ［J］. 山西大学学报 （ 自然科学版 ） ，
+2024 ，47（6） ：1115-1126. DOI ：10.13451/j.sxu.ns.2024051
+
+===== PAGE 2 =====
+47（6） 2024山西大学学报 （ 自然科学版 ）
+［8 ，15］ 提 出 了 关 于 四 元 数 变 量 实 值 函 数 的 梯 度 。 另 外 ， 文 献 ［16］ 将 复 数 域 理 论 推 广 到 了 四 元 数
+域 。Wang 等 证 明 了 在 复 数 域 中 ， 梯 度 下 降 算 法 是 可 行 的［17］。 所 有 这 些 丰 富 的 数 学 工 具 为 使 用 四
+元 数 表 示 彩 色 图 像 提 供 了 理 论 保 证 。
+最 近 ， 文 献 ［3 ］ 将 彩 色 图 像 修 复 问 题 转 化 为 一 个 低 秩 四 元 数 矩 阵 分 解 （Low rank quaternion ma⁃
+trix decomposition，LRQD） 模 型 。 该 模 型 旨 在 解 决 四 元 数 矩 阵 变 量 中 实 值 函 数 的 等 式 约 束 优 化 问
+题 ， 并 对 其 收 敛 性 进 行 了 分 析 。 另 一 方 面 ， 文 献 ［18］ 提 出 一 个 关 键 的 工 具 ， 即R 积 （R-product） ， 通
+过 将 两 个 四 元 数 矩 阵 的R 积 等 价 于 这 两 个 四 元 数 内 积 的 实 部 来 定 义 。 它 还 指 出 了 低 秩 四 元 数 矩
+阵 分 解 模 型 满 足 二 阶 连 续 可 微 ， 其 可 视 为 四 元 数 矩 阵 优 化 问 题 （Quaternion matrix optimization prob⁃
+lem） 的 一 个 特 例 。 然 而 ， 它 并 未 对 低 秩 四 元 数 矩 阵 分 解 模 型 进 行 深 入 详 细 地 分 析 。
+本 文 针 对 低 秩 四 元 数 矩 阵 分 解 模 型 进 行 了 最 优 性 分 析 ， 并 引 入 了 四 元 数 矩 阵 变 量 实 值 函 数 的
+一 阶 导 数 。 将 几 个 重 要 的 优 化 理 论 推 广 到 了 四 元 数 域 ， 并 提 出 了 四 元 数 梯 度 下 降 法 及 其 改 进 版
+本 ， 给 出 算 法 的 收 敛 性 分 析 。
+本 文 剩 余 的 组 织 结 构 如 下 。 第1 节 回 顾 了 四 元 数 和 四 元 数 矩 阵 的 一 些 必 要 知 识 ， 并 介 绍 了 低
+秩 四 元 数 矩 阵 分 解 模 型 。 第2 节 引 入 了 关 键 工 具R 积 和 R- 线 性 无 关 ， 用 来 定 义 四 元 数 矩 阵 变 量 的
+实 值 函 数 的 一 阶 导 数 ， 并 给 出 了 低 秩 四 元 数 矩 阵 分 解 模 型 的 一 阶 最 优 性 条 件 。 第3 节 介 绍 了 四 元
+数 梯 度 下 降 法 及 改 进 算 法 并 分 析 了 其 算 法 的 收 敛 性 。 第4 节 给 出 了 数 值 实 验 。 最 后 一 节 总 结 了 本
+文 的 研 究 工 作 。
+本 文 用R、C 和 Q 分 别 表 示 实 数 域 、 复 数 域 和 四 元 数 域 ； 用Rm × n 、Cm × n 和 Qm × n 分 别 表 示m × n
+阶 实 矩 阵 、 复 矩 阵 和 四 元 数 矩 阵 的 集 合 。 记H≔Qm1 × n1
+× Qm2 × n2
+× Qm3 × n3
+， 若A ∈ Qm1 × n1
+，H ∈ Qm2 × n2
+和 W ∈ Qm3 × n3
+， 称X = ( A， H， W ) ∈ H 为 矩 阵 分 量 向 量 ， 用0 和 O 分 别 表 示 具 有 适 当 维 数 的 零 向 量
+和 零 矩 阵 。 若A = (ast ) ∈ Qn × n ， 用tr( A) 表 示 A 的 迹 ， 其 定 义 为tr( A) = ∑
+s = 1
+n
+ass 。
+1 预备知识 
+本 节 主 要 回 顾 四 元 数 、 四 元 数 矩 阵 以 及 介 绍 低 秩 四 元 数 矩 阵 分 解 模 型 的 相 关 结 论 。
+1.1　四元数及四元数矩阵　
+四 元 数x 可 以 表 示 为
+x = x0 + x1 i + x2 j + x3 k，
+其 中x0，x1，x2，x3 ∈ R ，i，j，k 为 三 个 虚 单 位 ， 其 满 足 下 列 条 件
+i2 = j2 = k2 =-1，
+ij =-ji = k，jk =-kj = i，ki =-ik = j。
+这 些 规 则 和 分 布 规 律 决 定 了 四 元 数 的 乘 法 是 非 交 换 的 。
+四 元 数
+x 的 实 部 记 为Re( x ) = x0 ， 三 个 虚 部 分 别 记 为Imi ( x ) = x1、Imj ( x ) = x2 和 Imk ( x ) = x3 。
+四 元 数x 的 共 轭 为
+x∗ = x0 - x1 i - x2 j - x3 k。
+四 元 数x 的 模 为
+|x| = |x∗| = xx∗ = x∗ x = x2
+0 + x2
+1
++ x2
+2
++ x2
+3
+。
+若 x ≠ 0， 则x-1 = x∗
+|x|2 。
+四 元 数 矩 阵A ∈ Qm × n 可 表 示 为
+A = A0 + A1 i + A2 j + A3 k，
+其 中 A0，A1，A2，A3 ∈ Rm × n 。 四 元 数 矩 阵A 的 转 置 定 义 为
+1116
+
+===== PAGE 3 =====
+郑佳莉等： 低秩四元数矩阵分解模型的优化理论及其应用
+AT = AT
+0 + AT
+1
+i + AT
+2
+j + AT
+3
+k，
+四 元 数 矩 阵A 的 共 轭 转 置 定 义 为
+A* = AT
+0
+- AT
+1
+i - AT
+2
+j - AT
+3
+k。
+设 A ∈ Qm × n ， 若 存 在 矩 阵B ∈ Qn × n 满 足 AB = BA = In ， 则 称A 是 可 逆 的 ， 记A-1 = B 。
+设 A = (ast )，B = (bst ) ∈ Qm × n ， 它 们 的 内 积 定 义 为
+A， B = tr( B∗ A)∈ Q，
+它 们 实 内 积 的 定 义 为
+A ⋅ B ≔ Re A， B = Re( )∑
+s = 1
+m
+∑
+t = 1
+n
+b∗
+st
+ast ∈ R。
+四 元 数 矩 阵A 的 Frobenius 范 数 定 义 为
+‖ ‖A F = A， A = tr( A∗ A) = ∑
+s = 1
+m
+∑
+t = 1
+n
+| ast|2 。
+显 然 ， 有A ⋅ A = A， A = ‖ ‖A
+2
+F。 四 元 数 矩 阵 其 他 范 数 的 定 义 可 参 考 文 献 ［1］ 。
+定义1［18］ 若 存 在 不 全 为 零 的 实 数α1， α2， ⋯， αp 满 足
+∑
+j = 1
+p
+αj Aj = O，
+则 称{ Aj ∈ Rm × n：j = 1， ⋯， p } 是 R-线 性 相 关 的 。 否 则 ， 称 为R-线 性 无 关 的 。
+定义2［18-19］ 假 设 f：Qm × n → R 是 二 阶 连 续 可 微 ， 若 其 梯 度 满 足
+‖ ‖∇f (Y )- ∇f (Y  )
+F
+≤ η‖ ‖Y - Y 
+F
+， ∀Y， Y  ∈ Qm × n， 
+则 称 ∇f 是 Lipschitz 连 续 的 ， 其 中η > 0 是 Lipschitz 常 数 。
+引理1［18-19］ 假 设 f：Qm × n → R 是 二 阶 连 续 可 微 ， 且 梯 度∇f 是 Lipschitz 连 续 ， 则 有
+f (Y )≤ f (Y  )+ ∇f (Y  )⋅( Y - Y  )+ η
+2 ‖ ‖Y - Y 
+2
+F
+， ∀Y， Y  ∈ Qm × n， 
+其 中Lipschitz 常 数η > 0。
+引理2［3 ］ 假 设 序 列{ Zk = ( Z k
+1， Z k
+2 ， Z k
+3 ) }+∞
+k = 0 ⊂ H ， 若 序 列 满 足
+∑
+k = 0
++∞
+‖ ‖Zk - Zk + 1 2
+F
+<+∞，
+即 ：
+∑
+k = 0
++∞
+‖Zk - Zk + 1‖2
+F
+收 敛 ， 且 序 列{ Zk }+∞
+k = 1 是 有 界 的 ， 则 有lim
+k → +∞
+‖Zk - Zk + 1‖2
+F
+= 0。
+1.2 　低秩四元数矩阵分解模型　
+考 虑 如 下 低 秩 四 元 数 矩 阵 分 解 模 型［3 ］：
+min
+A，H，W
+1
+2 ‖ ‖HW - A
+2
+F， s.t.   AΩ = DΩ， （1）
+其 中 A ∈ Qm × n， H ∈ Qm × r， W ∈ Qr × n 是 决 策 变 量 ，D 是 给 定 的 四 元 数 数 据 集 矩 阵 ，Ω 为 D 观 测 部 分
+的 索 引 集 ，AΩ = DΩ 表 示 A 和 D 对 应 项 在 索 引 集 上 是 相 等 的 。
+显 然 ， 若 选 取X = ( A， H， W )，f ( X ) = 1
+2 ‖ ‖HW - A
+2
+F
+，hl ( X ) = ast - dst ， 其 中( s， t ) 为 Ω 的 第 l 指
+标 ( l = 1， ⋯， p )，p = |Ω| 为 Ω 基 数 的 大 小 。 因 此 ， 模 型 （1） 为 二 阶 连 续 可 微 的 四 元 数 矩 阵 优 化 问 题
+的 一 个 特 例［18］。
+文 献［3 ］提 出 了 求 解 低 秩 四 元 数 矩 阵 分 解 模 型（ 1）的 数 值 算 法 ， 即 ： 给 定H0 ∈ Qm × r ，
+1117
+
+===== PAGE 4 =====
+47（6） 2024山西大学学报 （ 自然科学版 ）
+W0 ∈ Qr × n ， 其 中r < min{m， n}， 记Ωc 为 Ω 的 补 集 ， 则 对 于 第k 步 迭 代 有
+■
+■
+■
+|| ||
+|| ||
+Ak
+Ω = Dk
+Ω
+， Ak
+Ωc =( HkWk )Ωc，
+Wk + 1 =[( Hk )* Hk ]-1 ( Hk )* Ak，
+Hk + 1 = Ak (Wk + 1 )* [ Wk + 1 (Wk + 1 )* ]-1。
+（2）
+迭 代 格 式 （2 ） 可 求 得 模 型 （1） 的 最 优 解 。 然 而 ， 迭 代 格 式 （2 ） 涉 及 两 个 四 元 数 矩 阵 方 程 组 的 求
+解 。 此 外 ， 文 献 ［18］ 给 出 了 低 秩 四 元 数 矩 阵 分 解 模 型 的 部 分 最 优 性 理 论 结 果 ， 没 有 给 出 迭 代 格 式
+的 收 敛 性 分 析 。
+本 文 将 从 避 免 求 解 四 元 数 矩 阵 方 程 组 的 角 度 ， 提 出 新 的 数 值 算 法 用 于 求 解 模 型 （1） 。 同 时 ， 给
+出 模 型 （1） 的 最 优 性 条 件 。 进 一 步 ， 提 出 四 元 数 梯 度 下 降 算 法 并 分 析 所 提 算 法 的 收 敛 性 。
+2 低秩四元数矩阵分解模型的最优化理论 
+在 本 节 中 ， 借 助 于R 积 、R- 线 性 无 关 和 梯 度 的 定 义 ， 用 它 们 来 定 义 四 元 数 矩 阵 变 量 中 实 值 函 数
+的 一 阶 导 数 ， 建 立 模 型 （1） 的 一 阶 最 优 性 条 件 。
+定义 3［3 ］ 设 f：Qm × n → R ，Y = Y0 + Y1 i + Y2 j + Y3 k， 这 里Y0， Y1， Y2， Y3 ∈ Rm × n 。 若 ∂f
+∂Yi
+在 Yi
+处 存 在( i = 0，1，2 ，3 ) ， 则 称f 在 Y 处 可 微 ， 记
+∇f (Y )= ∂f
+∂Y0
++ ∂f
+∂Y1
+i + ∂f
+∂Y2
+j + ∂f
+∂Y3
+k。
+若 f 在 Yi ( i = 0，1，2 ，3 ) 的 邻 域 内 有 定 义 且 在Yi 处 连 续 ， 则 称f 在 Y 处 连 续 可 微 。
+记 X = ( A， H， W ) ∈ H， 其 中 A = A0 + A1 i + A2 j + A3 k ∈ Qm1 × n1
+， H = H0 + H1 i +H2 j +
+H3 k ∈ Qm2 × n2
+，W = W0 + W1 i + W2 j + W3 k ∈ Qm3 × n3
+。 假 设 f：H → R 是 连 续 可 微 的 ， 则f 在 X 处 对
+Ai， Hi， Wi ( i = 0， 1， 2， 3 ) 是 可 微 ， 进 而 定 义f 在 X 处 的 偏 导 数 和 梯 度 分 别 为 ：
+■
+■
+■
+|
+|
+|
+|
+||
+|
+|
+|
+|
+|
+|
+|
+|
+|||
+|
+|
+|
+∇A f ( X )= ∂
+∂A0
+f ( X )+ ∂
+∂A1
+f ( X ) i + ∂
+∂A2
+f ( X ) j + ∂
+∂A3
+f ( X )k，
+∇H f ( X )= ∂
+∂H0
+f ( X )+ ∂
+∂H1
+f ( X ) i + ∂
+∂H2
+f ( X ) j + ∂
+∂H3
+f ( X )k，
+∇W f ( X )= ∂
+∂W0
+f ( X )+ ∂
+∂W1
+f ( X ) i + ∂
+∂W2
+f ( X ) j + ∂
+∂W3
+f ( X )k，
+∇f ( X )= [ ]∇A f ( X )，∇H f ( X )，∇W f ( X ) 。
+显 然 ∇f ( X ) ∈ H 。
+下 面 给 出 模 型 （1） 的 拉 格 朗 日 函 数 。
+记 p = |Ω| 为 Ω 基 数 的 大 小 。 令
+f ( X )= 1
+2 ‖ ‖HW - A
+2
+F， （3）
+hl ( X )= h0，l ( X )+ h1，l ( X ) i + h2 ，l ( X ) j + h3 ，l ( X )k = ast - dst， （4）
+其中 h0，l ( X ) = Re(ast - dst )、h1，l ( X ) = Imi ( ast - dst )、h2 ，l ( X ) = Imj ( ast - dst ) 和 h3 ，l ( X ) =Imk ( ast - dst )， 
+这里 ( s，t ) 对应 Ω 的第 l 指标 ( l = 1，⋯，p )。则模型 （1） 的拉格朗日函数为
+L( X )= f ( X )+ ∑
+i = 0
+3
+∑
+l = 1
+p
+λi，l hi，l ( X )。
+定理 1 假 设 函 数f，hi，l：H → R( i = 0，1，2 ，3 ； l = 1，⋯，p ) 如 式 （3 ） 和 式 （4） 所 定 义 ， 且 满 足 在X 处
+是 一 阶 连 续 可 微 的 。 设X# = ( A#，H#，W #
+) ∈ H 是 模 型 （1） 的 最 优 解 。 若∇hi，l ( X# ) 是 R- 线 性 无 关 ，
+则 存 在 拉 格 朗 日 乘 子λi，l ∈ R( i = 0，1，2 ，3 ； l = 1，⋯，p ) 满 足
+1118
+
+===== PAGE 5 =====
+郑佳莉等： 低秩四元数矩阵分解模型的优化理论及其应用
+∇f ( X# )+ ∑
+i = 0
+3
+∑
+l = 1
+p
+λi，l ∇hi，l ( X# )= O， （5）
+hl ( X# )= O。 （6）
+证明 将 上 式 函 数 中 的 四 元 数 矩 阵 变 量 转 化 为 由 实 矩 阵Ai， Hi， Wi ( i = 0，1，2 ，3 ) 为 变 量 的 实 值
+函 数 。 由 于∇hi，l ( X# )( i = 0，1，2 ，3 ； l = 1，⋯，p ) 是 R- 线 性 无 关 ， 根 据 一 阶 实 优 化 条 件 理 论 ， 可 得 式
+（5） 和 式 （6） 成 立 。
+定义4 设 f：H → R 是 二 阶 连 续 可 微 ， 若Y# ∈ H 是 模 型 （1） 的 最 优 解 ， 且 满 足
+∇f (Y# )= O，
+则 称 Y# 是 模 型 （1） 的 稳 定 点 。
+接 下 来 考 虑 模 型 （1） 的 目 标 函 数f ( X ) = 1
+2 ‖ ‖HW - A
+2
+F 。 由 文 献 ［3 ］ ， 可 得
+∇A f ( X )= A - HW， （7）
+∇H f ( X )=( HW - A)W*， （8）
+∇W f ( X )= H* ( HW - A)。 （9）
+并 有 以 下 定 理 成 立 。
+定理2 假设 f ( X ) = 1
+2 ‖ ‖HW - A
+2
+F
+， 则偏导数∇H f，∇W f，∇A f 满足 Lipschitz 连续， 即有下列不等式
+F， ∀H1， H2，
+‖ ‖∇W f ( A， H， W2 )- ∇W f ( A， H， W1 )
+F
+≤ η‖ ‖W2 - W1 F， ∀W1， W2，
+‖ ‖∇A f ( A2， H， W )- ∇A f ( A1， H， W )
+F
+≤ η‖ ‖A2 - A1 F， ∀A1， A2，
+其 中 η = max { 1，‖ ‖WW*
+F
+， ‖ ‖H* H
+F
+， c } 是 Lipschitz 常 数 ， 这 里c 为 给 定 的 适 当 的 常 数 。
+证明 由 定 义2 和 式 （8） 可 得
+‖ ‖∇H f ( A， H2， W )- ∇H f ( A， H1， W )
+F
+=
+‖ ‖( H2 W - A)( W )* -( H1W - A)W *
+F
+=
+‖ ‖( H2 - H1 )WW*
+F
+≤‖ ‖WW*
+F
+ ‖ ‖Hk + 1 - Hk
+F
+≤ η‖ ‖Hk + 1 - Hk
+F
+。
+同 理 ， 可 得 另 外 两 个 不 等 式 。
+定理3 设 X# = ( A#，H#，W #
+) ∈ H 是 模 型 （1） 的 稳 定 点 ， 则 有
+( H#W# - A# )( W# )* = Om × r，
+( H# )* ( H#W# - A# )= Or × n，
+A#
+Ω = DΩ， A#
+Ωc =( H#W# )Ωc
+成 立 ， 其 中r < min{m，n}，Ωc 是 Ω 的 补 集 。
+证明 由 于 X# 是 模 型 （1） 的 稳 定 点 ， 则X# 需 满 足 约 束 条 件A#
+Ω = DΩ ， 且 有
+∇f ( X# )=( ∇A f ( X# )， ∇H f ( X# )， ∇W f ( X# ) )= O。
+再 由 式 （7） 、 式 （8） 和 式 （9） 可 得
+A#
+Ωc -( H#W# )Ωc = Om × n，
+( H#W# - A# )( W# )* = Om × r，
+( H# )* ( H#W# - A# )= Or × n。
+即 证 明 完 成 。
+3 四元数梯度下降法及其收敛性分析 
+令
+1119
+
+===== PAGE 6 =====
+47（6） 2024山西大学学报 （ 自然科学版 ）
+S ={ Z ∈ Qm × n| hl ( Z )= 0， l = 1， ⋯， p， p = |Ω| }。
+记 H1 = S × Qm × r × Qr × n ， 则 模 型 （1） 可 改 写 为 如 下 优 化 问 题 ：
+min
+X =( A， H， W )∈ H1
+f ( X )= 1
+2 ‖ ‖HW - A
+2
+F。 （10）
+受 梯 度 下 降 法 思 想 的 启 发 ， 本 文 提 出 一 种 四 元 数 梯 度 下 降 法 求 解 问 题 （ 10） 。 记Xk =
+( Ak，  Hk， Wk )。 对 于 第k 步 迭 代 ， 有
+Xk + 1 = Xk - α∇f ( Xk )，
+其 中 α 是 步 长 因 子 且∇f ( Xk )=(( Ak - HkWk， ( HkWk - Ak )( Wk )*， ( Hk )* ( HkWk - Ak ) )。
+具 体 实 施 步 骤 见 算 法1 。
+算法1 （四 元 数 梯 度 下 降 法 求 解 低 秩 四 元 数 矩 阵 分 解 模 型）
+步 1 ： 给 定ϵ ， 选 取X0 = ( A0， H0， W0 ) ∈ H1 。
+步 2 ： 更 新Hk + 1 = Hk - α( HkWk - Ak )( Wk )* 。
+步 3 ： 更 新Wk + 1 = W k - α( Hk + 1 )* ( Hk + 1Wk - Ak )。
+步 4 ： 更 新Ak + 1
+Ω = DΩ， Ak + 1
+Ωc = ( Ak - α( Ak - Hk + 1Wk + 1 ) )Ωc 。
+步 5 ： 如 果‖ ‖Xk + 1 - Xk
+F
+< ϵ， 停 止 ； 否 则 ， 置k ≔ k + 1， 转 步2 。
+下 面 分 析 算 法1 的 收 敛 性 。
+定理 4 假 设 Xk、Xk + 1 ∈ H1 是 由 算 法1 生 成 ， 当 步 长 因 子α ∈ ( )0， 2
+η ， 算 法1 收 敛 且 有 以 下 不 等
+式 成 立
+f ( Xk + 1 )≤ f ( Xk )+ ( )
+η
+2 - 1
+α ‖ ‖Xk + 1 - Xk 2
+F
+， （11）
+其 中Lipschitz 常 数η > 0。
+证明 由 算 法1 可 得
+Hk + 1 = Hk - α∇H f ( Ak， Hk， Wk )，
+W k + 1 = Wk - α∇W f ( Ak， Hk + 1， Wk )，
+Ak + 1
+Ωc =( Ak - α∇A f ( Ak， Hk + 1， Wk + 1 ) )Ωc。 （12）
+由 定 理2 ， 可 得 偏 导 数∇H f， ∇W f， ∇A f 满 足Lipschitz 连 续 。 根 据 引 理1 和 式 （12 ） 可 得
+f ( Ak， Hk + 1， Wk )≤
+f ( Ak， Hk， Wk )+ ∇H f ( Ak， Hk， Wk )⋅( Hk + 1 - Hk )+ η
+2 ‖ ‖Hk + 1 - Hk 2
+F
+≤
+f ( Ak， Hk， Wk )- 1
+α ( Hk + 1 - Hk )⋅( Hk + 1 - Hk )+ η
+2 ‖ ‖Hk + 1 - Hk 2
+F
+≤
+f ( Ak， Hk， Wk )+ ( )
+η
+2 - 1
+α ‖ ‖Hk + 1 - Hk 2
+F
+， （13）
+f ( Ak， Hk + 1， Wk + 1 )≤
+f ( Ak， Hk + 1， Wk )+ ∇W f ( Ak， Hk + 1， Wk )⋅( Wk + 1 - Wk )+ η
+2 ‖ ‖Wk + 1 - Wk 2
+F
+≤
+f ( Ak， Hk + 1， Wk )+ ( )
+η
+2 - 1
+α ‖ ‖Wk + 1 - W k 2
+F
+。 （14）
+令
+fΩ ( A， Hk + 1， Wk + 1 )= 1
+2 ‖ ‖( Hk + 1Wk + 1 - A)Ω
+2
+F
+，
+fΩc ( A， Hk + 1， Wk + 1 )= 1
+2 ‖ ‖( Hk + 1Wk + 1 - A)Ωc
+2
+F
+，
+1120
+
+===== PAGE 7 =====
+郑佳莉等： 低秩四元数矩阵分解模型的优化理论及其应用
+则
+f ( Ak + 1， Hk + 1， Wk + 1 )= 1
+2 ‖ ‖Hk + 1Wk + 1 - Ak + 1 2
+F
+=
+1
+2 ‖ ‖( Hk + 1Wk + 1 - Ak + 1 )Ω
+2
+F
++ 1
+2 ‖ ‖( Hk + 1Wk + 1 - Ak + 1 )Ωc
+2
+F
+≔
+fΩ ( Ak + 1， Hk + 1， Wk + 1 )+ fΩc ( Ak + 1， Hk + 1， Wk + 1 )。
+注 意 到
+Ak + 1
+Ω = Ak
+Ω = DΩ，
+则 有
+fΩ ( Ak + 1， Hk + 1， Wk + 1 )= fΩ ( Ak， Hk + 1， Wk + 1 )。 （15）
+又 因 为
+fΩc ( Ak + 1， Hk + 1， Wk + 1 )≤
+fΩc ( Ak， Hk + 1， Wk + 1 )+( ∇A f ( Ak， Hk + 1， Wk )⋅( Ak + 1 - Ak ) )Ωc + η
+2 ‖ ‖( Ak + 1 - Ak )Ωc
+2
+F
+≤
+fΩc ( Ak， Hk + 1， Wk + 1 )- 1
+α ( Ak + 1 - Ak )Ωc ⋅( Ak + 1 - Ak )Ωc + η
+2 ‖ ‖( Ak + 1 - Ak )Ωc
+2
+F
+≤
+fΩc ( Ak， Hk + 1， Wk + 1 )+ ( )
+η
+2 - 1
+α ‖ ‖( Ak + 1 - Ak )Ωc
+2
+F
+， （16）
+将 式 （15） 和 式 （16） 相 加 可 得
+f ( Ak + 1， Hk + 1， Wk + 1 )≤ f ( Ak， Hk + 1， Wk + 1 )+ ( )
+η
+2 - 1
+α ‖ ‖( Ak + 1 - Ak )Ωc
+2
+F
+=
+f ( Ak， Hk + 1， Wk + 1 )+ ( )
+η
+2 - 1
+α ‖ ‖Ak + 1 - Ak 2
+F
+。 （17）
+令 Xk = ( Ak， Hk， Wk )， 将 式 （13 ） 、 式 （14） 和 式 （17） 相 加 可 得
+f ( Ak + 1， Hk + 1， Wk + 1 )≤
+f ( Ak， Hk， Wk )+ ( )
+η
+2 - 1
+α [ ‖ ‖Hk + 1 - Hk 2
+F
++‖ ‖Wk + 1 - W k 2
+F
++‖ ‖Ak + 1 - Ak 2
+F
+]。
+即 ：
+f ( Xk + 1 )≤ f ( Xk )+ ( )
+η
+2 - 1
+α ‖ ‖Xk + 1 - Xk 2
+F
+。
+因 此 ， 当η
+2 - 1
+α < 0 时 ， 即 证 明 式 （11） 。
+定理5 记 { Xk = ( Ak， Hk， Wk ) }+∞
+k = 0 ⊆ H1 是 算 法1 所 生 成 的 序 列 ， 则 有 以 下 式 子 成 立
+∑
+k = 0
+∞
+‖ ‖Xk - Xk + 1 2
+F
+< ∞，
+从 而 有
+lim
+k →+∞
+‖ ‖Xk - Xk + 1 2
+F
+= 0，
+即 ：
+lim
+k →+∞
+‖ ‖Ak - Ak + 1
+F
+= 0，
+ lim
+k →+∞
+‖ ‖Hk - Hk + 1
+F
+= 0，
+lim
+k →+∞
+‖ ‖Wk - W k + 1
+F
+= 0。
+证明 由 定 理4 可 得 ， 当α ∈ ( )0，η
+2 时 ， 有
+1121
+
+===== PAGE 8 =====
+47（6） 2024山西大学学报 （ 自然科学版 ）
+( 1
+α - η
+2 ) ‖Xk - Xk + 1‖2
+F ≤ f ( )Xk - f ( Xk + 1 )⇔
+2 - αη
+2 α ‖Xk - Xk + 1‖2
+F
+≤ f ( Xk )- f ( Xk + 1 )⇔
+‖Xk - Xk + 1‖2
+F
+≤ 2 α
+2 - αη ( f ( Xk )- f ( Xk + 1 ) )。
+对 上 式k 进 行 从0 累 加 到K 可 得
+∑
+k = 0
+K
+‖Xk - Xk + 1‖2
+F
+≤ ∑
+k = 0
+K 2 α
+2 - αη ( f ( Xk )- f ( Xk + 1 ) )≤ 2 α
+2 - αη ( f ( X0 )- f ( X1 )+ ⋯ +f ( XK )- f ( XK + 1 ) )=
+2 α
+2 - αη ( f ( X0 )- f ( XK + 1 ) )≤ 2 α
+2 - αη f ( X0 )< ∞。
+令 K → +∞， 再 由 引 理2 可 得
+lim
+k →+∞
+‖Xk - Xk + 1‖2
+F
+= 0。
+又 由 于
+‖Xk - Xk + 1‖2
+F
+= ‖ (Ak， Hk， Wk )-( Ak + 1， Hk + 1， Wk + 1 ) ‖2
+F
+=
+‖ (Ak - Ak + 1，Hk - Hk + 1， Wk - W k + 1 ) ‖2
+F
+=
+‖Ak - Ak + 1‖2
+F
++ ‖Hk - Hk + 1‖2
+F
++ ‖Wk - W k + 1‖2
+F
+，
+令 上 式k → +∞ 时 ， 有
+lim
+k →+∞
+‖Ak - Ak + 1‖2
+F
+= 0，lim
+k →+∞
+‖Hk - Hk + 1‖2
+F
+= 0，lim
+k →+∞
+‖Wk - W k + 1‖2
+F
+= 0
+成 立 ， 即 证 明 完 成 。
+根 据 定 理5 可 知 ，{ Xk }+∞
+k = 0 是 有 界 的 且S 是 闭 集 ， 则 存 在 子 序 列{ X
+kj
+} 和 X# ， 当j → +∞ 时 ， 满 足
+X
+kj
+→ X# 。 由 于f 在 S × Qm × r × Qr × n 上 是 连 续 的 ， 则 当j → +∞ 时 ， 有f ( X
+kj
+) → f ( X# ) 成 立［20 ］。
+结 合 低 秩 四 元 数 矩 阵 分 解 模 型 一 阶 最 优 性 分 析 中 的 定 理2 ， 四 元 数 梯 度 下 降 法 基 础 上 进 行 改
+进 ， 提 出 改 进 的 四 元 数 梯 度 下 降 法 ， 如 算 法2 所 示 。
+算法2 （改 进 的 四 元 数 梯 度 下 降 法 求 解 低 秩 四 元 数 矩 阵 分 解 模 型）
+步 1 ： 给 定ϵ ， 选 取X0 = ( A0， H0， W0 ) ∈ H1 。
+步 2 ： 更 新Hk + 1 = Hk - α( HkWk - Ak )( Wk )* 。
+步 3 ： 更 新Wk + 1 = W k - α( Hk + 1 )* ( Hk + 1Wk - Ak )。
+步 4 ： 更 新Ak + 1
+Ω = DΩ， Ak + 1
+Ωc = ( Hk + 1Wk + 1 )Ωc 。
+步 5 ： 如 果‖Xk + 1 - Xk‖F < ϵ， 停 止 ； 否 则 ， 置k ≔ k + 1， 转 步2 。
+算 法 1 与 算 法2 的 主 要 区 别 在 于 变 量A 的 更 新 ， 然 而 算 法2 利 用 最 新 得 到 的 变 量Hk + 1 和 Wk + 1
+来 更 新 变 量A 。
+下 面 分 析 算 法2 的 收 敛 性 。
+定理 6 假 设 Xk、Xk + 1 ∈ H1 是 由 算 法2 生 成 ， 当 步 长 因 子α ∈ ( )0， 2
+η ， 算 法2 收 敛 且 有 以 下 不 等
+式 成 立
+f ( Xk + 1 )≤ f ( Xk )+ λ0‖ ‖Xk + 1 - Xk 2
+F
+ ， （18）
+其 中λ0 = max ■
+■
+■
+■
+■
+■
+- 1
+2 ， -( )
+1
+α - η
+2 ，η > 0 是 Lipschitz 常 数 。
+证明 由 定 理2 ， 可 得 偏 导 数∇H f， ∇W f， ∇A f 满 足Lipschitz 连 续 ， 则 根 据 引 理1 和 算 法2 可 得
+f ( Ak， Hk + 1， Wk )≤
+f ( Ak， Hk， Wk )+ ∇H f ( Ak， Hk， Wk )⋅( Hk + 1 - Hk )+ η
+2 ‖ ‖Hk + 1 - Hk 2
+F
+≤
+1122
+
+===== PAGE 9 =====
+郑佳莉等： 低秩四元数矩阵分解模型的优化理论及其应用
+f ( Ak， Hk， Wk )- 1
+α ( Hk + 1 - Hk )⋅( Hk + 1 - Hk )+ η
+2 ‖ ‖Hk + 1 - Hk 2
+F
+≤
+f ( Ak， Hk， Wk )+( η
+2 - 1
+α ) ‖ ‖Hk + 1 - Hk 2
+F
+， （19）
+f ( Ak， Hk + 1， Wk + 1 )≤
+f ( Ak， Hk + 1， Wk )+ ∇W f ( Ak， Hk + 1， Wk )⋅( Wk + 1 - Wk )+ η
+2 ‖ ‖Wk + 1 - Wk 2
+F
+≤
+f ( Ak， Hk + 1， Wk )+( η
+2 - 1
+α ) ‖ ‖Wk + 1 - Wk 2
+F
+。 （20）
+又 由 算 法2 可 得
+Ak + 1
+Ω = Ak
+Ω = DΩ，
+则 有
+f ( Ak + 1， Hk + 1， Wk + 1 )- f ( Ak， Hk + 1， Wk + 1 )=
+1
+2 ‖ ‖Hk + 1Wk + 1 - Ak + 1 2
+F
+- 1
+2 ‖ ‖Hk + 1Wk + 1 - Ak 2
+F
+=
+1
+2 ‖ ‖( Hk + 1Wk + 1 - Ak + 1 )Ω
+2
+F
++ 1
+2 ‖ ‖( Hk + 1Wk + 1 - Ak + 1 )Ωc
+2
+F
+- 1
+2 ‖ ‖( Hk + 1Wk + 1 - Ak )Ω
+2
+F
+-
+1
+2 ‖ ‖( Hk + 1Wk + 1 - Ak )Ωc
+2
+F
+=
+1
+2 ‖ ‖( Hk + 1Wk + 1 - Ak + 1 )Ωc
+2
+F
+- 1
+2 ‖ ‖( Hk + 1Wk + 1 - Ak )Ωc
+2
+F
+=
+- 1
+2 ‖ ‖( Ak + 1 - Ak )Ωc
+2
+F
+=- 1
+2 ‖ ‖Ak + 1 - Ak 2
+F
+。 （21）
+令 Xk = ( Ak， Hk， Wk )， 将 式 （19） 、 式 （20 ） 和 式 （21 ） 相 加 可 得
+Wk + 1 )≤ f ( Ak， Hk， Wk )-( 1
+α - η
+2 ) [ ‖ ‖Hk + 1 - Hk 2
+F
++‖ ‖Wk + 1 - W k 2
+F
+]- 1
+2 ‖ ‖Ak + 1 - Ak 2
+F
+≤
+f ( Ak， Hk， Wk )+ λ0 [ ‖ ‖Hk + 1 - Hk 2
+F
++‖ ‖Wk + 1 - W k 2
+F
++‖ ‖Ak + 1 - Ak 2
+F
+]，
+这 里 λ0 = max {- 1
+2 ，  -( 1
+α - η
+2 ) }， 即 ：
+f ( Xk + 1 )≤ f ( Xk )+ λ0‖ ‖Xk + 1 - Xk 2
+F
+，
+即 证 明 式 （18） 。
+与 定 理5 证 明 类 似 ， 可 得‖ ‖Ak - Ak + 1
+F
+→ 0， ‖ ‖Hk - Hk + 1
+F
+→ 0，‖ ‖Wk - W k + 1
+F
+→ 0。
+4 数值实验 
+在 本 节 中 ， 为 了 证 明 所 提 出 算 法 的 有 效 性 ， 给 出 四 元 数 梯 度 下 降 法 和 改 进 的 四 元 数 梯 度 下 降
+法 在 图 像 恢 复 上 的 应 用 并 去 验 证 所 提 算 法 的 可 行 性 。
+所 有 实 验 都 是 在MATLAB （R2022a ） ，Intel（R） Core（TM） i5-7200U CPU @2.50 GHz 的 计 算 机
+下 进 行 。 设 采 样 率ρ ∈ ( 0， 1) 为 给 定 的 数 。 指 标 集Ω 在 MATLAB 中 随 机 生 成 。 图 像 大 小 统 一 设 置
+为 256 × 256 × 3 或 135 × 198 × 3 。 此 外 ， 实 验 中 的 原 始 彩 色 图 像 是 不 含 噪 声 。 设 定 算 法1 和 算 法
+2 的 初 始 值A0 为
+A0
+ij =
+■
+■
+■
+| |
+| |
+Dij， ( i，j )∈ Ω，
+随机数 ， ( i，j )∉ Ω，
+这 里 D 是 取 采 用 率 为ρ 的 退 化 图 像 。 设 定 步 长 因 子α = 0.002 5 ，ρ = 0.7 和 ϵ = 10-4 。 设 置 其 终 止
+条 件 为‖Xk - Xk + 1‖F < 10-4， 其 中k 为 迭 代 次 数 。 设A# 和 A 分 别 表 示 恢 复 后 的 彩 色 图 像 和 原 始 彩
+色 图 像 ， 定 量 指 标 选 择 峰 值 信 噪 比 （RPSN） 和 结 构 相 识 度 （MSSI）［21 ］， 分 别 定 义 为
+1123
+
+===== PAGE 10 =====
+47（6） 2024山西大学学报 （ 自然科学版 ）
+RPSN ( A#， A)= 20 log 10
+255
+1
+mn‖A# - A‖F
+，
+MSSI ( A#， A)= ( 2μA μA# + c1 )( 2 σAA# + c2 )
+( μ2
+A + μ2
+A# + c1 )( σ 2
+A + σ 2
+A# + c2 )，
+其中 m， n 为 A 的维数，μA， μA#， σA， σA# 分别为 A 和 A# 的均值和标准差， 常数c1 和 c2 用来避免分母为零。
+在 实 验 中 使 用MATLAB 内 置 函 数 “psnr ” 和 “ssim ” 来 计 算RPSN 和 MSSI 结 果 。RPSN 和 MSSI 的 值 越
+高 ， 表 示 恢 复 图 像 的 质 量 和 效 果 越 好 ， 但RPSN 值 在( 0， 1) 之 间 。 利 用 本 文 提 出 四 元 数 梯 度 下 降 法 和
+改 进 的 四 元 数 梯 度 下 降 法 对 退 化 图 像 进 行 图 像 恢 复 任 务 。 具 体 如 图1 所 示 。
+本 节 主 要 比 较 所 提 出 的 四 元 数 梯 度 下 降 法 和 改 进 的 四 元 数 梯 度 下 降 法 对 测 试 图 像 整 体 恢 复
+效 果 。 当 采 样 率 ρ = 0.7 时 ， 恢 复 图 像 的RPSN 和 MSSI 值 见 表 1。 从 表 1 可 看 出 ， 当 步 长 因 子α =
+0.002 5 时 ， 改 进 的 四 元 数 梯 度 下 降 法 的 数 值 表 现 较 好 。 图1 给 出 了 四 元 数 梯 度 下 降 法 和 改 进 的 四
+图 1　在图像上恢复具有视觉质量和数值结构的彩色图像
+（a） 原始图像； （b） 采样率ρ = 0.7生成的退化图像； （c） 利用四元数梯度下降法恢复的图像；
+ （d） 利用改进的四元数梯度下降法算法恢复的图像。
+Fig.  1　Color images with visual quality and numerical structure are restored on the image
+(a) The original images; (b) Degraded images generated by sampling rate ρ = 0.7; (c) The images restored by quaternion gradient 
+descent method; (d) The images restored by the improved quaternion gradient descent algorithm.
+1124
+
+===== PAGE 11 =====
+郑佳莉等： 低秩四元数矩阵分解模型的优化理论及其应用
+元 数 梯 度 下 降 法 恢 复 图 像 的 效 果 图 ， 以 展 示 所 提 出 方 法 的 视 觉 质 量 。 从 视 觉 结 果 来 看 ， 当 步 长 因
+子 α = 0.002 5 时 ， 两 种 算 法 均 能 够 较 好 地 保 留 颜 色 通 道 的 颜 色 结 构 。 然 而 ， 当 步 长 因 子 过 大 时 ， 会
+适 当 地 破 坏 颜 色 结 构 。 此 外 ， 改 进 的 四 元 数 梯 度 下 降 法 在 恢 复 彩 色 图 像 上 效 果 较 好 ， 其 可 以 更 好
+地 防 止 图 像 平 滑 ， 能 够 较 好 地 恢 复 图 像 的 详 细 结 构 。
+从 测 试 图 像 的 数 值 结 果 可 以 看 出 ， 所 提 出 的 四 元 数 梯 度 下 降 法 和 改 进 的 四 元 数 梯 度 下 降 法 均
+能 够 有 效 地 处 理 图 像 恢 复 问 题 ， 且 改 进 的 四 元 数 梯 度 下 降 法 在 视 觉 质 量 和 数 值 结 果 上 有 较 好 的
+表 现 。
+5 结论 
+本 文 研 究 低 秩 四 元 数 矩 阵 分 解 模 型 及 其 在 彩 色 图 像 处 理 中 的 应 用 。 利 用 了 一 个 关 键 工 具R-
+积 ， 将 优 化 理 论 推 广 到 四 元 数 域 上 ， 给 出 低 秩 四 元 数 矩 阵 分 解 模 型 的 一 阶 优 化 条 件 ， 同 时 提 出 了 四
+元 数 梯 度 下 降 法 和 改 进 的 四 元 数 梯 度 下 降 法 ， 并 分 析 了 其 算 法 的 收 敛 性 。 数 值 实 验 表 明 了 所 提 出
+算 法 的 鲁 棒 性 。 特 别 地 ， 改 进 的 四 元 数 梯 度 下 降 法 能 够 更 好 地 保 留 彩 色 图 像 颜 色 的 结 构 。 然 而 ，
+所 提 出 的 策 略 也 有 其 局 部 性 ， 步 长 因 子 太 大 时 会 破 坏 图 像 的 结 构 。
+参考文献：
+[1]  JIA Z G, NG M K, SONG G J. Robust Quaternion Ma‐
+trix Completion with Applications to Image Inpainting
+[J]. Numer Linear Algebra Appl, 2019, 26(4): e2245. 
+DOI: 10.1002/nla.2245.
+[2]  KE Y F, MA C F, JIA Z G, et al. Quasi Non-negative 
+Quaternion Matrix Factorization with Application to 
+Color Face Recognition[J]. J Sci Comput, 2023, 95(2): 
+38. DOI: 10.1007/s10915-023-02157-x.
+[3]  CHEN Y N, QI L Q, ZHANG X Z, et al. A Low Rank 
+Quaternion Decomposition Algorithm and Its Applica‐
+tion in Color Image Inpainting[EB/OL]. (2020-09-25)
+[2023-09-10]. https://arxiv.org/abs/2009.12203.
+[4]  WU P L, KOU K I, MIAO J F. Efficient Low-rank Qua‐
+ternion Matrix Completion Under the Learnable Trans‐
+forms for Color Image Recovery[J]. Appl Math Lett, 
+2024, 148: 108880. DOI: 10.1016/j.aml.2023.108880.
+[5]  SUN S N, DIAO Q K, XU D P, et al. Convex Quaternion 
+Optimization for Signal Processing: Theory and Applica‐
+tions[J]. IEEE Trans Signal Process, 2023, 71: 4106-
+4115. DOI: 10.1109/TSP.2023.3328053.
+[6]  ZHENG M M, NI G Y . Approximation Strategy Based 
+on the T-product for Third-order Quaternion Tensors 
+with Application to Color Video Compression[J]. Appl 
+Math Lett, 2023, 140: 108587. DOI: 10.1016/j.
+aml.2023.108587.
+[7]  CHEN Y Y , XIAO X L, ZHOU Y C. Low-rank Quater‐
+nion Approximation for Color Image Processing[J]. 
+IEEE Trans Image Process, 2019: 29: 1426-1439. DOI: 
+10.1109/TIP.2019.2941319.
+[8] 
+ XU D P, JAHANCHAHI C, TOOK C C, et al. Enabling 
+Quaternion Derivatives: The Generalized HR Calculus
+[J]. R Soc Open Sci, 2015, 2(8): 150255. DOI: 10.1098/
+rsos.150255.
+[9]  JIA Z G, JIN Q Y , NG M K, et al. Non-local Robust Qua‐
+ternion Matrix Completion for Large-scale Color Image 
+and Video Inpainting[J]. IEEE Trans Image Process, 
+表 1　采样率
+ρ = 0. 7的 RPSN 和 MSSI 值
+Table 1　The values of RPSN and MSSI for the sampling rate ρ = 0. 7
+Image serial number
+01
+02
+03
+04
+05
+06
+Degraded image
+RPSN
+7.28
+10.03
+10.05
+9.85
+11.85
+6.71
+MSSI
+0.152 6
+0.332 7
+0.302 7
+0.208 1
+0.308 1
+0.489 5
+Algorithm 1
+RPSN
+13.13
+17.32
+18.68
+16.32
+16.71
+13.90
+MSSI
+0.339 7
+0.682 6
+0.679 0
+0.481 8
+0.638 0
+0.815 9
+Algorithm 2
+RPSN
+19.11
+20.52
+19.24
+18.57
+20.51
+21.24
+MSSI
+0.796 6
+0.821 6
+0.803 5
+0.695 4
+0.796 0
+0.947 5
+1125
+
+===== PAGE 12 =====
+47（6） 2024山西大学学报 （ 自然科学版 ）
+2022, 31: 3868-3883. DOI: 10.1109/TIP.2022.3176133.
+[10]  MIAO J F, KOU K I. Color Image Recovery Using 
+Low-rank Quaternion Matrix Completion Algorithm[J]. 
+IEEE Trans Image Process, 2022, 31: 190-201. DOI: 
+10.1109/TIP.2021.3128321.
+[11]  MIAO J F, KOU K I. Quaternion-based Bilinear Factor 
+Matrix Norm Minimization for Color Image Inpainting
+[J]. IEEE Trans Signal Process, 2020, 68: 5617-5631. 
+DOI: 10.1109/TSP.2020.3025519.
+[12]  JIA Z G, WEI M S, LING S T. A New Structure-
+preserving Method for Quaternion Hermitian Eigen‐
+value Problems[J]. J Comput Appl Math, 2013, 239: 12-
+24. DOI: 10.1016/j.cam.2012.09.018.
+[13]  SANGWINE S J. Fourier Transforms of Colour Images 
+Using Quaternion or Hyper Complex, Numbers[J]. 
+Electron Lett, 1996, 32(21): 1979. DOI: 10.1049/el: 
+19961331.
+[14]  ZHANG F Z. Quaternions and Matrices of Quaternions[J]. 
+Linear Algebra Appl, 1997, 251: 21-57. DOI: 10.1016/
+0024-3795(95)00543-9.
+[15]  MANDIC D P, JAHANCHAHI C, TOOK C C. A Qua‐
+ternion Gradient Operator and Its Applications[J]. IEEE 
+Signal Process Lett, 2011, 18(1): 47-50. DOI: 10.1109/
+LSP.2010.2091126.
+[16]  QI L Q, ZHANG X Z. Constrained Optimization of Real 
+Functions in Quaternion Matrix Variables[J/OL]. (2020-
+09-29)[2023-09-10]. https://arxiv.org/abs/2009.13884.
+[17]  WANG S, GONG Y . Low-complexity Iterative Methods 
+for Complex-variable Matrix Optimization Problems in 
+Frobenius Norm[J/OL]. (2023-03-14) [2023-09-10]. 
+https://doi.org/10.48550/arXiv.2303.0761.
+[18]  QI L Q, LUO Z Y , WANG Q W, et al. Quaternion Ma‐
+trix Optimization: Motivation and Analysis[J]. J Optim 
+Theory Appl
+, 2022, 193(1/2/3): 621-648. DOI: 10.1007/
+s10957-021-01906-y.
+[19]  BAUSCHKE H H, BOLTE J, TEBOULLE M. A De‐
+scent Lemma Beyond Lipschitz Gradient Continuity: 
+First-order Methods Revisited and Applications[J]. 
+Math Oper Res, 2017, 42(2): 330-348. DOI: 10.1287/
+moor.2016.0817.
+[20]  CHEN J F, WANG Q W, SONG G J, et al. Quaternion 
+Matrix Factorization for Low-rank Quaternion Matrix 
+Completion[J]. Mathematics, 2023, 11(9): 2144. DOI: 
+10.3390/math11092144.
+[21]  WANG Z, BOVIK A C, SHEIKH H R, et al. Image 
+Quality Assessment: From Error Visibility to Structural 
+Similarity[J]. IEEE Trans Image Process, 2004, 13(4): 
+600-612. DOI: 10.1109/tip.2003.819861.
+1126

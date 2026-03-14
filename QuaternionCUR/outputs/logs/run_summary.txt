@@ -1,0 +1,4 @@
+Trend check against paper Table 4-like behavior
+k monotonic nondecreasing: True
+PSNR monotonic nondecreasing: True
+overall_trend_match: True

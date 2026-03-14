@@ -1,0 +1,2 @@
+example,svd_residual,gi_residual,x_diff_norm,reconstruction_error,penrose_e1,penrose_e2,penrose_e3,penrose_e4,paper_trend_match
+6.1,1.2178088937988185e-14,1.2178088937988185e-14,0.0,1.3249385016481455e-14,1.3377150891304504e-14,7.935103787557551e-16,5.845251079158341e-15,2.897501305189152e-15,True

@@ -1,0 +1,3 @@
+metric,paper,reproduced,aligned
+Error trend,All errors < 1e-11,max residual=1.418e-13,True
+Algorithm consistency,CQLS Alg1 and Alg2 produce same minimum-norm solution,x_diff_norm=0.000e+00,True

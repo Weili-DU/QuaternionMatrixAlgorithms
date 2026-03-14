@@ -1,0 +1,24 @@
+{
+  "image_name": "astronaut",
+  "sample_rate": 0.2,
+  "seed": 2025,
+  "params": {
+    "lam": 0.07,
+    "rank": 30,
+    "beta1": 0.0001,
+    "rho": 1.01,
+    "beta_max": 1.0,
+    "tol": 0.0001,
+    "max_iter": 120
+  },
+  "observed_metrics": {
+    "psnr": 6.216527742379593,
+    "ssim": 0.14838731712445877
+  },
+  "recovered_metrics": {
+    "psnr": 20.55753838302946,
+    "ssim": 0.5578385380864104
+  },
+  "improvement_psnr": 14.341010640649866,
+  "improvement_ssim": 0.40945122096195163
+}

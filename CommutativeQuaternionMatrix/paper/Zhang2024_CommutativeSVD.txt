@@ -1,0 +1,1193 @@
+Applied Mathematics and Computation 460 (2024) 128291
+Available online 24 August 2023
+0096-3003/© 2023 Elsevier Inc. All rights reserved.
+Contentslistsavailableat ScienceDirect
+Applied Mathematics and Computation
+journal homepage: www.elsevier.com/locate/amc
+On singular value decomposition and generalized inverse of a 
+commutative quaternion matrix and applications ✩
+DongZhang a, TongsongJiang b,c,∗, GangWang a, V.I.Vasil’eva,∗
+a Institute of Mathematics and Information Science, North-Eastern Federal University, Yakutsk 677000, Russia
+b School of Electronic Information, Shandong Xiandai University, Jinan Shandong 250104, PR China
+c School of Mathematics and Statistics, Linyi University, Linyi Shandong 276005, PR China
+A R T I C L E I N F O A B S T R A C T
+Keywords:
+Commutative quaternion matrix
+Complex representation
+Moore-Penrose generalized inverse
+Singular value decomposition
+Least squares problem
+By means of a complex representation of a commutative quaternion matrix, the singular value 
+decomposition and the generalized inverse problems of a commutative quaternion matrix are 
+studied, and the corresponding theorems and algorithms are given. In addition, based on the 
+singular value decomposition and generalized inverse of a commutative quaternion matrix, the 
+numerical experiments for solving the least squares problem and the color image watermarking 
+problem are given. Numerical experiments illustrate the eﬀectiveness and reliability of the 
+proposed algorithms.
+1. Introduction
+In 1892, Segre introduced the concept of commutative quaternion which was deﬁned [1]b y 𝑞= 𝑞1 + 𝑞2i + 𝑞3j + 𝑞4k, j2 =1 , i2 =
+k2 =i jk=−1, where 𝑞1, 𝑞2, 𝑞3, 𝑞4 ∈𝐑, ij =ji  =k , jk =kj =i , ki =ik=−j . Sometimes, the commutative quaternion is called the reduced 
+biquaternion. Unlike the quaternion, the biggest diﬀerence between the commutative quaternion and the quaternion is the commu-
+tative rule of multiplication. Commutative quaternion algebra is an increasing topic in many ﬁelds. Quaternions and commutative 
+quaternions are commonly used in image processing, fuzzy recognition, signal processing, electromagnetics, etc. [2–19].
+At present, with the rapidly developing of the above-mentioned disciplines, a large number of papers have been published to 
+study the theoretical properties and numerical computations of the commutative quaternion matrix equations. Ding et al. [15]gave  
+the expressions of the minimum norm least squares solution for the commutative quaternion matrix equation 𝐴𝑥 = 𝑏by using the 
+real representation of a commutative quaternion matrix. In the paper [18], the authors derived two direct methods for solving the 
+Hermitian solutions of the commutative quaternion matrix equation (𝐴𝑋𝐵, 𝐶𝑋𝐷) =( 𝐸, 𝐺), using the complex representation of the 
+commutative quaternion matrix, and established the necessary and suﬃcient conditions for the existence of a solution and a solution 
+formula. Additionally, Hikmah et al. [19]studied  Cramer’s rule and adjoint method for the commutative quaternion linear equations. 
+In this paper, by means of a complex representation of a commutative quaternion matrix, we study the singular value decomposition 
+(SVD) and the generalized inverse problems of a commutative quaternion matrix, give the corresponding theorems and algorithms, 
+✩ The research of T. Jiang is supported by the Ministry of Science and Higher Education of the Russian Federation, supplementary agreement (No.075-02-2023-947,  
+February 16, 2023). The research of V.I. Vasil’ev, D. Zhang, and G. Wang is supported by the Russian Science Foundation grant (23-71-30013). The research of D. 
+Zhang is supported by the Chinese Government Scholarship (CSC No. 202108370086). The research of G. Wang is supported by the Chinese Government Scholarship 
+(CSC No. 202008370340).
+* Corresponding authors.
+E-mail addresses:jiangtongsong@sina.com(T.Jiang),  vasvasil@mail.ru(V.I.Vasil’ev).
+https://doi.org/10.1016/j.amc.2023.128291
+Received 26 October 2022; Received in revised form 3 May 2023; Accepted 11 August 2023
+Applied Mathematics and Computation 460 (2024) 128291
+2
+D. Zhang, T. Jiang, G. Wang et al.
+and solve the commutative quaternion least squares (CQLS) problem and the color image watermarking problem. Finally, numerical 
+experiments demonstrate the eﬀectiveness of the proposed algorithms.
+Let 𝐑, 𝐂, 𝐇 and 𝐇c denote the real number ﬁeld, the complex number ﬁeld, the quaternion skew ﬁeld, and the commutative 
+quaternion ring, respectively. For any matrix 𝐴 = 𝐴1 + 𝐴2i + 𝐴3j + 𝐴4k∈ 𝐇𝑚×𝑛
+c , 𝐴𝑇 = 𝐴𝑇
+1 + 𝐴𝑇
+2 i + 𝐴𝑇
+3 j + 𝐴𝑇
+4 k, ̄𝐴= 𝐴1 −𝐴2i −𝐴3j−
+𝐴4k, 𝐴∗=𝐴𝑇
+1 −𝐴𝑇
+2 i −𝐴𝑇
+3 j −𝐴𝑇
+4 k, ̃𝐴=𝐴1−𝐴2i +𝐴3j −𝐴4k, 𝐴𝐻 =𝐴𝑇
+1 −𝐴𝑇
+2 i +𝐴𝑇
+3 j −𝐴𝑇
+4 kdenote the transpose, the conjugate, the conjugate 
+transpose, the ik-conjugate and the ik-conjugate transpose of the matrix 𝐴, respectively. 𝐴 ∈𝐇𝑛×𝑛
+c is said to be a commutative 
+quaternion unitary matrix if it satisﬁes 𝐴𝐴𝐻 =𝐴𝐻𝐴 =𝐼𝑛. Given a commutative quaternion 𝑞=𝑞1 +𝑞2i +𝑞3j +𝑞4k, its modulus can be 
+expressed as |𝑞| =
+√
+𝑞2
+1 +𝑞2
+2 +𝑞2
+3 +𝑞2
+4 [10].
+The rest of this paper is organized as follows. In Section2, we give some properties of the complex representation of a commutative 
+quaternion. In Section3, we propose the singular value decomposition theorem and algorithm for a commutative quaternion matrix. 
+In Section4, we study the generalized inverse of a commutative quaternion. In Section5, we propose the generalized inverse theorem 
+and algorithm for a commutative quaternion matrix. In Section 6, based on generalized inverse and singular value decomposition 
+over commutative quaternion algebra, we study the CQLS problem. Numerical examples are given to demonstrate the eﬀectiveness 
+of the proposed algorithms. In Section7, we apply SVDCQ Algorithm to the color image watermarking problem.
+2. Preliminaries
+For any commutative quaternion matrix 𝐴 =𝐴1 +𝐴2i +𝐴3j +𝐴4k=( 𝐴1 +𝐴2i) +(𝐴3 +𝐴4i)j =𝐵1 +𝐵2j ∈𝐇𝑚×𝑛
+c , 𝐴1, 𝐴2, 𝐴3, 𝐴4 ∈𝐑𝑚×𝑛, 
+𝐵1, 𝐵2 ∈𝐂𝑚×𝑛, its complex representation 𝐴𝜎was denoted by
+𝐴𝜎=
+[𝐵1 𝐵2
+𝐵2 𝐵1
+]
+∈𝐂2𝑚×2𝑛. (2.1)
+For any matrix 𝐴 ∈𝐇𝑚×𝑛
+c , we can obtain (𝐴∗)𝜎≠(𝐴𝜎)∗in general. But for the ik-conjugate transpose 𝐴𝐻 of 𝐴, we can get the following 
+equality,
+(𝐴𝐻 )𝜎
+=(𝐴𝜎)𝐻 . (2.2)
+For 𝐴, 𝐵∈𝐇𝑚×𝑛
+c , 𝐶∈𝐇𝑛×𝑠
+c , 𝑟 ∈𝐑, we have the following results,
+(𝐴+𝐵)𝜎=𝐴𝜎+𝐵𝜎,(𝐴𝐶)𝜎=𝐴𝜎𝐶𝜎,(𝑟𝐴)𝜎=𝑟𝐴𝜎. (2.3)
+Clearly, for 𝐴 =𝐵1 +𝐵2j ∈𝐇𝑚×𝑛
+c , we have
+𝑃𝑇
+𝑚𝐴𝜎𝑃𝑛=
+[𝐵1 −𝐵2 0
+0 𝐵1 +𝐵2
+]
+, (2.4)
+where 𝑃𝑡= 1√
+2
+[ 𝐼𝑡 𝐼𝑡
+−𝐼𝑡 𝐼𝑡
+]
+, 𝑃𝑇
+𝑡𝑃𝑡=𝑃𝑡𝑃𝑇
+𝑡 =𝐼2𝑡.
+Two norms of a matrix 𝐴 ∈𝐇𝑚×𝑛
+c are deﬁned
+‖𝐴‖𝐹 ≡ ‖𝐴𝜎‖𝐹, ‖𝐴‖2 ≡ ‖𝐴𝜎‖2, (2.5)
+then ‖ ⋅‖𝐹 and ‖ ⋅‖2 are two unitarily invariant norms of a commutative quaternion matrix.
+3. Singular value decomposition of a commutative matrix
+Given any matrix 𝐴 ∈𝐅𝑚×𝑛, 𝐅 ={ 𝐑, 𝐂, 𝐇}, the eigenvalues of the matrix 𝐴𝐻𝐴are nonnegative real numbers by [20,21]. If the 
+eigenvalues of the matrix 𝐴𝐻𝐴are 𝜆𝑡, then 
+√
+𝜆𝑡are the singular values of the matrix 𝐴.
+Lemma 3.1. (SVD) [20,21]. Let 𝐴 ∈𝐅𝑚×𝑛, 𝐅 ={ 𝐑, 𝐂, 𝐇}. Then the SVD of the matrix 𝐴 is as follows
+𝐴=𝑈
+[Σ𝑟 0
+00
+]
+𝑉𝐻, (3.1)
+where 𝑈∈𝐅2𝑚×2𝑚 and 𝑉∈𝐅2𝑛×2𝑛are unitary matrices, 𝑟 =rank( 𝐴), Σ𝑟=diag(𝜎1, 𝜎2, ⋯  , 𝜎𝑟), 𝜎1 ≥𝜎2 ≥ ⋯  ≥𝜎𝑟>0, and the diagonal elements 
+of Σ𝑟are the all nonnegative singular values of 𝐴.
+In general, the eigenvalues of a commutative quaternion matrix 𝐴𝐻𝐴may not be nonnegative real numbers of a commutative 
+quaternion matrix 𝐴 ∈𝐇𝑚×𝑛
+c , for example,
+𝐴=
+[ j0
+01 + j
+]
+,𝐴 𝐻𝐴=
+[10
+02 ( 1 + j )
+]
+, (3.2)
+the eigenvalues of 𝐴𝐻𝐴are 1 and 2(1 +j).
+Applied Mathematics and Computation 460 (2024) 128291
+3
+D. Zhang, T. Jiang, G. Wang et al.
+Now we study the SVD problem of a commutative quaternion matrix. Let 𝐴 = 𝐵1 + 𝐵2j ∈𝐇𝑚×𝑛
+c , by (2.1), (2.4)a n d Lemma 3.1
+there exist four unitary matrices ̂𝑈1, ̂𝑈2 ∈𝐂𝑚×𝑚and ̂𝑉1, ̂𝑉2 ∈𝐂𝑛×𝑛such that
+𝐵1 −𝐵2 = ̂𝑈1 ̂Σ1 ̂𝑉𝐻
+1 = ̂𝑈1
+[ ́Σ𝑠 0
+00
+]
+̂𝑉𝐻
+1 , (3.3a)
+𝐵1 +𝐵2 = ̂𝑈2 ̂Σ2 ̂𝑉𝐻
+2 = ̂𝑈2
+[ ̀Σ𝑡 0
+00
+]
+̂𝑉𝐻
+2 , (3.3b)
+where ́Σ𝑠=diag( 𝜏1, 𝜏2, ⋯  , 𝜏𝑠), ̀Σ𝑡=diag( 𝛾1, 𝛾2, ⋯  , 𝛾𝑡), 𝑠 =rank( 𝐵1 −𝐵2), 𝑡 =rank( 𝐵1 +𝐵2), 𝜏1 ≥ 𝜏2 ≥ ⋯  ≥ 𝜏𝑠>0, 𝛾1 ≥ 𝛾2 ≥ ⋯  ≥ 𝛾𝑡>0, and 
+𝜏1, 𝜏2, ⋯  , 𝜏𝑠, 𝛾1, 𝛾2, ⋯  , 𝛾𝑡are the all nonnegative singular values of the complex matrices 𝐵1 −𝐵2 and 𝐵1 +𝐵2, respectively.
+By (2.4)and  (3.3), we have
+𝐴𝜎=𝑃𝑚
+[𝐵1 −𝐵2 0
+0 𝐵1 +𝐵2
+]
+𝑃𝑇
+𝑛
+=𝑃𝑚
+[ ̂𝑈1 0
+0 ̂𝑈2
+][ ̂Σ1 0
+0 ̂Σ2
+][ ̂𝑉1 0
+0 ̂𝑉2
+]𝐻
+𝑃𝑇
+𝑛
+=𝑃𝑚
+[ ̂𝑈1 0
+0 ̂𝑈2
+]
+𝑃𝑇
+𝑚𝑃𝑚
+[ ̂Σ1 0
+0 ̂Σ2
+]
+𝑃𝑇
+𝑛𝑃𝑛
+[ ̂𝑉1 0
+0 ̂𝑉2
+]𝐻
+𝑃𝑇
+𝑛 (3.4)
+=
+[ ̂𝑈1+ ̂𝑈2
+2
+̂𝑈2−̂𝑈1
+2̂𝑈2−̂𝑈1
+2
+̂𝑈1+ ̂𝑈2
+2
+][ ̂Σ1+̂Σ2
+2
+̂Σ2−̂Σ1
+2̂Σ2−̂Σ1
+2
+̂Σ1+̂Σ2
+2
+] ⎡
+⎢
+⎢⎣
+̂𝑉𝐻
+1 + ̂𝑉𝐻
+2
+2
+̂𝑉𝐻
+2 −̂𝑉𝐻
+2
+2̂𝑉𝐻
+2 −̂𝑉𝐻
+2
+2
+̂𝑉𝐻
+1 + ̂𝑉𝐻
+2
+2
+⎤
+⎥
+⎥⎦
+=(
+̂𝑈1 + ̂𝑈2
+2 +
+̂𝑈2 −̂𝑈1
+2 j)𝜎(
+̂Σ1 + ̂Σ2
+2 +
+̂Σ2 −̂Σ1
+2 j)𝜎(
+̂𝑉𝐻
+1 + ̂𝑉𝐻
+2
+2 +
+̂𝑉𝐻
+2 −̂𝑉𝐻
+1
+2 j)𝜎
+=𝑈𝜎Σ𝜎(𝑉𝐻)𝜎,
+in which
+Σ=
+̂Σ1 + ̂Σ2
+2 +
+̂Σ2 −̂Σ1
+2 j,𝑈 =
+̂𝑈1 + ̂𝑈2
+2 +
+̂𝑈2 −̂𝑈1
+2 j,𝑉 =
+̂𝑉1 + ̂𝑉2
+2 +
+̂𝑉2 −̂𝑉1
+2 j, (3.5)
+and Σ =
+[Σ𝑟 0
+00
+]
+, Σ𝑟=diag( 𝜎1, 𝜎2, ⋯  , 𝜎𝑟), 𝜎𝑙= 𝜏𝑙+𝛾𝑙
+2 + 𝛾𝑙−𝜏𝑙
+2 j, 𝑙=1 , 2, ⋯  , 𝑟, 𝑟 =max{ 𝑠, 𝑡}, 𝜏𝑟=0 if 𝑟 >𝑠, 𝛾𝑟=0 if 𝑟 >𝑡, ||𝜎1||≥ ||𝜎2||≥ ⋯  ≥
+||𝜎𝑟||>0.
+Clearly, 𝑈 and 𝑉 are two commutative quaternion unitary matrices. Therefore, there exists unique a diagonal commutative 
+quaternion matrix Σ𝑟such that
+𝐴=𝑈
+[Σ𝑟 0
+00
+]
+𝑉𝐻, (3.6)
+where 𝑈∈𝐇𝑚×𝑚
+c , 𝑉∈𝐇𝑛×𝑛
+c , 𝑈𝐻𝑈=𝑈𝑈𝐻 =𝐼𝑚, 𝑉𝐻𝑉=𝑉𝑉𝐻 =𝐼𝑛.
+Theorem 3.2. (SVDCQ). Let 𝐴 ∈𝐇𝑚×𝑛
+c . Then there exist two commutative quaternion unitary matrices 𝑈∈𝐇𝑚×𝑚
+c and 𝑉∈𝐇𝑛×𝑛
+c such that
+𝐴=𝑈
+[Σ𝑟 0
+00
+]
+𝑉𝐻, (3.7)
+where Σ𝑟=diag( 𝜎1, 𝜎2, ⋯  , 𝜎𝑟), 𝜎𝑙= 𝜏𝑙+𝛾𝑙
+2 + 𝛾𝑙−𝜏𝑙
+2 j, 𝑙=1 , 2, ⋯  , 𝑟, 𝑟 =max{ 𝑠, 𝑡}, 𝜏𝑟=0 if 𝑟 >𝑠, 𝛾𝑟=0 if 𝑟 >𝑡, the 𝑠, 𝑡, 𝜏𝑠, 𝛾𝑡are given in (3.3), 
+||𝜎1||≥ ||𝜎2||≥ ⋯  ≥ ||𝜎𝑟||>0, 𝜎𝑟is called to be the singular value of the commutative quaternion matrix 𝐴.
+Remark 1. Given any commutative quaternion matrix 𝐴, Theorem 3.2 constructs a singular value decomposition of 𝐴by means 
+of the complex representation of a commutative quaternion matrix 𝐴, giving the matrix 𝑈containing the left singular vectors, the 
+matrix 𝑉containing the right singular vectors, and the singular values matrix Σ, respectively. The singular values of a commutative 
+quaternion matrix are diﬀerent from the singular values over complex and quaternion ﬁelds, i.e., they are not nonzero real numbers, 
+but a new form of 𝑎 +𝑏j, where 𝑎, 𝑏 ∈𝐑.
+By Theorem3.2, we can also obtain an algorithm for computing the SVD of a commutative quaternion matrix as follows.
+4. The generalized inverse of a commutative quaternion
+Deﬁnition 4.1. Let 𝑞be a commutative quaternion. A commutative quaternion, denoted by 𝑞†, is called the Moore-Penrose general-
+ized inverse of 𝑞if 𝑥 =𝑞† satisﬁes the following four equations:
+(1) 𝑞𝑥𝑞=𝑞, (2) 𝑥𝑞𝑥=𝑥, (3) (𝑞𝑥)𝐻 =𝑞𝑥, (4) (𝑥𝑞)𝐻 =𝑥𝑞. (4.1)
+Applied Mathematics and Computation 460 (2024) 128291
+4
+D. Zhang, T. Jiang, G. Wang et al.
+𝐒𝐕𝐃𝐂𝐐 𝐀𝐥𝐠𝐨𝐫𝐢𝐭𝐡𝐦.(AnalgorithmforcomputingSVDCQ):Foranycommutativequaternion 𝐴∈𝐇𝑚×𝑛
+c .Input 𝐴,
+output 𝑈∈𝐇𝑚×𝑚
+c ,Σ∈𝐇𝑚×𝑛
+c ,𝑉 ∈𝐇𝑛×𝑛
+c ,suchthat 𝐴=𝑈Σ𝑉𝐻.
+Step1.Constructthecomplexrepresentationmatrix 𝐴𝜎by(2.1);
+Step2.Constructthefollowingequationby( 2.4),
+𝑃𝑇
+𝑚𝐴𝜎𝑃𝑛=
+[ 𝐵1 −𝐵2 0
+0 𝐵1 +𝐵2
+]
+;
+Step3.Constructsingularvaluedecompositionof 𝐵1 −𝐵2 and 𝐵1 +𝐵2,respectively,
+𝐵1 −𝐵2 = ̂𝑈1 ̂Σ1 ̂𝑉𝐻
+1 = ̂𝑈1
+[ ́Σ𝑠 0
+00
+]
+̂𝑉𝐻
+1 , ́Σ𝑠=diag(𝜏1,𝜏2, ⋯ ,𝜏𝑠),
+𝐵1 +𝐵2 = ̂𝑈2 ̂Σ2 ̂𝑉𝐻
+2 = ̂𝑈2
+[ ̀Σ𝑡 0
+00
+]
+̂𝑉𝐻
+2 , ̀Σ𝑡=diag(𝛾1,𝛾2, ⋯ ,𝛾𝑡);
+Step4.Constructthesingularvaluesandtheright(resp.left)singularvectorsof 𝐴asfollows,
+𝜎𝑙= 𝜏𝑙+𝛾𝑙
+2 + 𝛾𝑙−𝜏𝑙
+2 j, 𝑙=1,2, ⋯ ,𝑟, 𝑟=max{𝑠,𝑡}, 𝜏𝑟=0if 𝑟>𝑠, 𝛾𝑟=0 if 𝑟>𝑡,
+Σ=
+̂Σ1+̂Σ2
+2 +
+̂Σ2−̂Σ1
+2 j,𝑈 =
+̂𝑈1+ ̂𝑈2
+2 +
+̂𝑈2−̂𝑈1
+2 j,𝑉 =
+̂𝑉1+ ̂𝑉2
+2 +
+̂𝑉2−̂𝑉1
+2 j.
+Clearly, Σ𝑟=diag(𝜎1,𝜎2, ⋯ ,𝜎𝑟),𝑈,𝑉 satisfy 𝐴=𝑈
+[Σ𝑟 0
+00
+]
+𝑉𝐻.
+For a commutative quaternion 𝑞= 𝑞1 +𝑞2i +𝑞3j +𝑞4k= 𝑏1 +𝑏2j ∈𝐇c, 𝑏1 = 𝑞1 +𝑞2i, 𝑏2 = 𝑞3 +𝑞4i, 𝑞𝜎=
+[𝑏1 𝑏2
+𝑏2 𝑏1
+]
+, we can obtain the 
+Moore-Penrose generalized inverse of 𝑞as follows.
+𝑞† =
+⎧
+⎪
+⎪
+⎨
+⎪
+⎪⎩
+𝑞1+𝑞2i−𝑞3j−𝑞4k
+(𝑞1+𝑞2i)2−(𝑞3+𝑞4i)2 ,𝑏 2
+1 ≠𝑏2
+2,
+(𝑞1+𝑞3)−(𝑞2+𝑞4)i+(𝑞1+𝑞3)j−(𝑞2+𝑞4)k
+2(𝑞1+𝑞3)2+2(𝑞2+𝑞4)2 ,𝑏 1 =𝑏2 ≠0,
+(𝑞1−𝑞3)−(𝑞2−𝑞4)i−(𝑞1−𝑞3)j+(𝑞2−𝑞4)k
+2(𝑞1−𝑞3)2+2(𝑞2−𝑞4)2 ,𝑏 1 =−𝑏2 ≠0,
+0,𝑏 2
+1 =𝑏2
+2 =0.
+(4.2)
+Proof. (1) When 𝑏1 ≠𝑏2, we have
+(𝑞𝜎)† =
+(
+𝑃1
+[𝑏1 −𝑏2 0
+0 𝑏1 +𝑏2
+]
+𝑃𝑇
+1
+)†
+=𝑃1
+[(𝑏1 −𝑏2)† 0
+0( 𝑏1 +𝑏2)†
+]
+𝑃𝑇
+1
+=𝑃1
+[ 1
+𝑏1−𝑏2
+0
+0 1
+𝑏1+𝑏2
+]
+𝑃𝑇
+1 =𝑃1
+[ 1
+𝑞1+𝑞2i−(𝑞3+𝑞4i) 0
+0 1
+𝑞1+𝑞2i+(𝑞3+𝑞4i)
+]
+𝑃𝑇
+1
+=𝑃1
+⎡
+⎢
+⎢⎣
+𝑞1+𝑞2i+(𝑞3+𝑞4i)
+(𝑞1+𝑞2i)2−(𝑞3+𝑞4i)2 0
+0 𝑞1+𝑞2i−(𝑞3+𝑞4i)
+(𝑞1+𝑞2i)2−(𝑞3+𝑞4i)2
+⎤
+⎥
+⎥⎦
+𝑃𝑇
+1 (4.3)
+=
+⎡
+⎢
+⎢
+⎢⎣
+𝑞1+𝑞2i
+(𝑞1+𝑞2i)2−(𝑞3+𝑞4i)2
+−
+(
+𝑞3+𝑞4i
+)
+(𝑞1+𝑞2i)2−(𝑞3+𝑞4i)2
+−
+(
+𝑞3+𝑞4i
+)
+(𝑞1+𝑞2i)2−(𝑞3+𝑞4i)2
+𝑞1+𝑞2i
+(𝑞1+𝑞2i)2−(𝑞3+𝑞4i)2
+⎤
+⎥
+⎥
+⎥⎦
+,
+where 𝑃1 = 1√
+2
+[ 𝐼1 𝐼1
+−𝐼1 𝐼1
+]
+, therefore
+𝑞† = 𝑞1 +𝑞2i
+(𝑞1 +𝑞2i)2 −(𝑞3 +𝑞4i)2 + −(𝑞3 +𝑞4j)
+(𝑞1 +𝑞2i)2 −(𝑞3 +𝑞4i)2 j= 𝑞1 +𝑞2i−𝑞3j−𝑞4k
+(𝑞1 +𝑞2i)2 −(𝑞3 +𝑞4i)2 . (4.4)
+(2) When 𝑏1 =𝑏2 ≠0, we have
+(𝑞𝜎)† =
+(
+𝑃1
+[00
+0 𝑏1 +𝑏2
+]
+𝑃𝑇
+1
+)†
+=𝑃1
+[00
+0( 𝑏1 +𝑏2)†
+]
+𝑃𝑇
+1
+=𝑃1
+[
+00
+0 1
+𝑏1+𝑏2
+]
+𝑃𝑇
+1 =𝑃1
+[
+00
+0 1
+𝑞1+𝑞2i+(𝑞3+𝑞4i)
+]
+𝑃𝑇
+1
+=𝑃1
+[ 00
+0 𝑞1+𝑞3−(𝑞2+𝑞4)i
+(𝑞1+𝑞3
+)2+(𝑞2+𝑞4
+)2
+]
+𝑃𝑇
+1 (4.5)
+=
+⎡
+⎢
+⎢⎣
+𝑞1+𝑞3−(𝑞2+𝑞4)i
+2
+(
+𝑞1+𝑞3
+)2+2
+(
+𝑞2+𝑞4
+)2
+𝑞1+𝑞3−(𝑞2+𝑞4)i
+2
+(
+𝑞1+𝑞3
+)2+2
+(
+𝑞2+𝑞4
+)2
+𝑞1+𝑞3−(𝑞2+𝑞4)i
+2
+(
+𝑞1+𝑞3
+)2+2
+(
+𝑞2+𝑞4
+)2
+𝑞1+𝑞3−(𝑞2+𝑞4)i
+2
+(
+𝑞1+𝑞3
+)2+2
+(
+𝑞2+𝑞4
+)2
+⎤
+⎥
+⎥⎦
+,
+therefore
+Applied Mathematics and Computation 460 (2024) 128291
+5
+D. Zhang, T. Jiang, G. Wang et al.
+𝑞† = 𝑞1 +𝑞3 −(𝑞2 +𝑞4)i
+2 (𝑞1 +𝑞3
+)2 +2 (𝑞2 +𝑞4
+)2 + 𝑞1 +𝑞3 −(𝑞2 +𝑞4)i
+2 (𝑞1 +𝑞3
+)2 +2 (𝑞2 +𝑞4
+)2 j
+= (𝑞1 +𝑞3)−(𝑞2 +𝑞4)i+( 𝑞1 +𝑞3)j−(𝑞2 +𝑞4)k
+2(𝑞1 +𝑞3)2 +2(𝑞2 +𝑞4)2 . (4.6)
+(3) When 𝑏1 =−𝑏2 ≠0, it is similar to (2), we have
+𝑞† = (𝑞1 −𝑞3)−(𝑞2 −𝑞4)i−(𝑞1 −𝑞3)j+( 𝑞2 −𝑞4)k
+2(𝑞1 −𝑞3)2 +2(𝑞2 −𝑞4)2 . (4.7)
+(4) When 𝑏1 =𝑏2 =0, we have
+𝑞† =0. (4.8)
+The following Theorem4.2originates immediately from the aforementioned discussion. □
+Theorem 4.2. Let 𝑞∈𝐇c . Then the Moore-Penrose generalized inverse of 𝑞is as follows,
+𝑞† =((𝑞𝜎)†)𝜎−1
+=
+⎧
+⎪
+⎪
+⎨
+⎪
+⎪⎩
+𝑞1+𝑞2i−𝑞3j−𝑞4k
+(𝑞1+𝑞2i)2−(𝑞3+𝑞4i)2 ,𝑏 2
+1 ≠𝑏2
+2,
+(𝑞1+𝑞3)−(𝑞2+𝑞4)i+(𝑞1+𝑞3)j−(𝑞2+𝑞4)k
+2(𝑞1+𝑞3)2+2(𝑞2+𝑞4)2 ,𝑏 1 =𝑏2 ≠0,
+(𝑞1−𝑞3)−(𝑞2−𝑞4)i−(𝑞1−𝑞3)j+(𝑞2−𝑞4)k
+2(𝑞1−𝑞3)2+2(𝑞2−𝑞4)2 ,𝑏 1 =−𝑏2 ≠0,
+0,𝑏 2
+1 =𝑏2
+2 =0,
+(4.9)
+where 𝑞𝜎 is the complex representation matrix of 𝑞.
+5. The generalized inverse of a commutative quaternion matrix
+Given a matrix 𝐴 ∈𝐇𝑚×𝑛
+c , a generalized inverse of 𝐴is deﬁned as 𝑋, and 𝑋satisﬁes the following Penrose conditions
+(1) 𝐴𝑋𝐴=𝐴, (2) 𝑋𝐴𝑋=𝑋, (3) (𝐴𝑋)𝐻 =𝐴𝑋, (4) (𝑋𝐴)𝐻 =𝑋𝐴. (5.1)
+Deﬁnition 5.1. For 𝐴 ∈𝐇𝑚×𝑛
+c , 𝑋∈𝐇𝑛×𝑚
+c is said to be a (𝑖, 𝑗, ⋯)generalized inverse of 𝐴if 𝑋satisﬁes Penrose conditions (𝑖), (𝑗), ⋯ in 
+equation (5.1). Denote the 𝑋by 𝐴(𝑖,𝑗,⋯) and the set of all 𝐴(𝑖,𝑗,⋯) by 𝐴{𝑖, 𝑗, ⋯}. The unique solution 𝐴(1,2,3,4) of the equations (5.1)is  
+called the Moore-Penrose generalized inverse of 𝐴, and denote it by 𝐴† ≡𝐴(1,2,3,4).
+By (2.2)and  (2.3), we consider the equivalent form of the equation (5.1),
+(1) 𝐴𝜎𝑋𝜎𝐴𝜎=𝐴𝜎, (2) 𝑋𝜎𝐴𝜎𝑋𝜎=𝑋𝜎, (3) (𝐴𝜎𝑋𝜎)𝐻 =𝐴𝜎𝑋𝜎, (4) (𝑋𝜎𝐴𝜎)𝐻 =𝑋𝜎𝐴𝜎. (5.2)
+Given any matrix 𝐴 =𝐵1 +𝐵2j ∈𝐇𝑚×𝑛
+c , by (2.1), (2.4)we  have
+(𝐴𝜎)† =
+(
+𝑃𝑚
+[𝐵1 −𝐵2 0
+0 𝐵1 +𝐵2
+]
+𝑃𝑇
+𝑛
+)†
+=𝑃𝑛
+[(𝐵1 −𝐵2)† 0
+0( 𝐵1 +𝐵2)†
+]
+𝑃𝑇
+𝑚
+=
+⎡
+⎢
+⎢⎣
+(𝐵1−𝐵2)†+(𝐵1+𝐵2)†
+2
+(𝐵1+𝐵2)†−(𝐵1−𝐵2)†
+2
+(𝐵1+𝐵2)†−(𝐵1−𝐵2)†
+2
+(𝐵1−𝐵2)†+(𝐵1+𝐵2)†
+2
+⎤
+⎥
+⎥⎦
+(5.3)
+=
+(
+(𝐵1−𝐵2)†+(𝐵1+𝐵2)†
+2 + (𝐵1+𝐵2)†−(𝐵1−𝐵2)†
+2 j
+)𝜎
+,
+therefore
+𝐴† = (𝐵1 −𝐵2)† +(𝐵1 +𝐵2)†
+2 + (𝐵1 +𝐵2)† −(𝐵1 −𝐵2)†
+2 j. (5.4)
+Theorem 5.2. Let 𝐴 ∈𝐇𝑚×𝑛
+c . Then the Moore-Penrose generalized inverse of 𝐴 is as follows,
+𝐴† =((𝐴𝜎)†)𝜎−1
+= (𝐵1 −𝐵2)† +(𝐵1 +𝐵2)†
+2 + (𝐵1 +𝐵2)† −(𝐵1 −𝐵2)†
+2 j, (5.5)
+where 𝐴𝜎 can be obtained by (2.1).
+The following results come from the statements above by direct calculation.
+Applied Mathematics and Computation 460 (2024) 128291
+6
+D. Zhang, T. Jiang, G. Wang et al.
+𝐆𝐈𝐂𝐐 𝐀𝐥𝐠𝐨𝐫𝐢𝐭𝐡𝐦.(CalculatetheMoore-Penrosegeneralizedinverse 𝐴† ofacommutativequaternionmatrix 𝐴based
+onthesingularvaluedecomposition):Foranycommutativequaternion 𝐴∈𝐇𝑚×𝑛
+c .Input 𝐴,output 𝐴†.
+Step1.Constructthecomplexrepresentationmatrix 𝐴𝜎by(2.4);
+Step2.BytheSVDCQalgorithm,constructthefollowingequation,
+𝐴𝜎=𝑃𝑚
+[ ̂𝑈1 0
+0 ̂𝑈2
+]
+𝑃𝑇
+𝑚𝑃𝑚
+[ ̂Σ1 0
+0 ̂Σ2
+]
+𝑃𝑇
+𝑛𝑃𝑛
+[ ̂𝑉1 0
+0 ̂𝑉2
+]𝐻
+𝑃𝑇
+𝑛;
+Step3.ConstructtheMoore-Penrosegeneralizedinverseofthe 𝐴𝜎,
+(𝐴𝜎)† =𝑃𝑛
+[ ̂𝑉1 0
+0 ̂𝑉2
+]
+𝑃𝑇
+𝑛𝑃𝑛
+[ ̂Σ†
+1 0
+0 ̂Σ†
+2
+]
+𝑃𝑇
+𝑚𝑃𝑚
+[ ̂𝑈1 0
+0 ̂𝑈2
+]𝐻
+𝑃𝑇
+𝑚
+=
+[ ̂𝑉1+ ̂𝑉2
+2
+̂𝑉2−̂𝑉1
+2̂𝑉2−̂𝑈1
+2
+̂𝑉1+ ̂𝑉2
+2
+] ⎡
+⎢
+⎢⎣
+̂Σ†
+1+̂Σ†
+2
+2
+̂Σ†
+2−̂Σ†
+1
+2̂Σ†
+2−̂Σ†
+1
+2
+̂Σ†
+1+̂Σ†
+2
+2
+⎤
+⎥
+⎥⎦
+⎡
+⎢
+⎢⎣
+̂𝑈𝐻
+1 + ̂𝑈𝐻
+2
+2
+̂𝑈𝐻
+2 −̂𝑈𝐻
+2
+2̂𝑈𝐻
+2 −̂𝑈𝐻
+2
+2
+̂𝑈𝐻
+1 + ̂𝑈𝐻
+2
+2
+⎤
+⎥
+⎥⎦
+=
+[ ̂𝐴1 ̂𝐴2
+̂𝐴2 ̂𝐴1
+]
+;
+Step4.ConstructtheMoore-Penrosegeneralizedinverse 𝐴† of 𝐴asfollows,
+𝐴† = ̂𝐴1 + ̂𝐴2j.
+Theorem 5.3. Let 𝐴 ∈𝐇𝑚×𝑛
+c , according to Theorem 3.2, construct the SVD of 𝐴 as 𝐴 =𝑈
+[Σ𝑟 0
+00
+]
+𝑉𝐻 . Then
+(1) (Minus sign inverse) 𝐺∈𝐴{1} if and only if
+𝐺=𝑉
+[
+Σ†
+𝑟 𝐾
+𝐿𝑀
+]
+𝑈𝐻, (5.6)
+where any 𝐾∈𝐇𝑟×(𝑚−𝑟)
+c , 𝐿 ∈𝐇(𝑛−𝑟)×𝑟
+c and 𝑀 ∈𝐇(𝑛−𝑟)×(𝑚−𝑟)
+c ;
+(2) (Least squares generalized inverse) 𝐺∈𝐴{1, 3} if and only if
+𝐺=𝑉
+[
+Σ†
+𝑟 0
+𝐿𝑀
+]
+𝑈𝐻, (5.7)
+where any 𝐿 ∈𝐇(𝑛−𝑟)×𝑟
+c , 𝑀 ∈𝐇(𝑛−𝑟)×(𝑚−𝑟)
+c ;
+(3) (Minimum norm generalized inverse) 𝐺∈𝐴{1, 4} if and only if
+𝐺=𝑉
+[
+Σ†
+𝑟 𝐾
+0 𝑀
+]
+𝑈𝐻, (5.8)
+where any 𝐾∈𝐇𝑟×(𝑚−𝑟)
+c , 𝑀 ∈𝐇(𝑛−𝑟)×(𝑚−𝑟)
+c ;
+(4) (Moore-Penrose generalized inverse) 𝐺=𝐴† =𝐴(1,2,3,4) if and only if
+𝐺=𝑉
+[
+Σ†
+𝑟 0
+00
+]
+𝑈𝐻. (5.9)
+It is worth noting that Theorem 5.3 gives algebraic techniques for the generalized inverse 𝐴(1), 𝐴(1,3), 𝐴(1,4), 𝐴† = 𝐴(1,2,3,4) of 𝐴. 
+Similarly, we can also get 𝐴(1,2), 𝐴(1,2,3), 𝐴(1,2,4), 𝐴(1,3,4).
+Theorem 5.4. Let 𝐴 ∈𝐇𝑚×𝑛
+c . Then the Moore-Penrose generalized inverse of the matrix 𝐴 is as follows,
+𝐴† =𝑉
+[
+Σ†
+𝑟 0
+00
+]
+𝑈𝐻, (5.10)
+where Σ†
+𝑟=diag(𝜎†
+1, 𝜎†
+2, ⋯  , 𝜎†
+𝑟), 𝜎𝑡=𝑎𝑡+𝑏𝑡j, 𝑈, 𝑉 are the singular value decomposition matrices of 𝐴 in Theorem 3.2.
+Given any commutative quaternion matrix 𝐴, by Theorem5.4, we can also obtain an algorithm for computing the Moore-Penrose 
+generalized inverse of 𝐴based on the singular value decomposition as follows.
+6. The commutative quaternion least squares problem
+6.1. Singular value decomposition and least squares problem
+Given the CQLS problem,
+‖𝐴𝑥−𝑏‖𝐹 =min, (6.1)
+where 𝐴 ∈𝐇𝑚×𝑛
+c , 𝑏 ∈𝐇𝑚×1
+c .
+Theorem 6.1. Let 𝑈𝐻𝐴𝑉=Σ be the SVD of 𝐴 ∈𝐇𝑚×𝑛
+c with Σ =
+[Σ𝑟 0
+00
+]
+, 𝑈𝑟= [𝑢1, ⋯ ,𝑢𝑟
+], Σ𝑟=diag (𝜎1,𝜎2, ⋯ ,𝜎𝑟
+) and 𝑉𝑟= [𝑣1, ⋯ ,𝑣𝑟
+]
+are column partitionings and 𝑏 ∈𝐇𝑚×1
+c . Then
+Applied Mathematics and Computation 460 (2024) 128291
+7
+D. Zhang, T. Jiang, G. Wang et al.
+𝐂𝐐𝐋𝐒 𝐀𝐥𝐠𝐨𝐫𝐢𝐭𝐡𝐦 𝟏.(AsingularvaluedecompositionalgorithmfortheCQLSproblem):Foranycommutativequaternion
+𝐴∈𝐇𝑚×𝑛
+c , 𝑏∈𝐇𝑚×1
+c .Input 𝐴,𝑏,output 𝑥𝐿𝑆∈𝐇𝑛×1
+c ,suchthat ‖𝐴𝑥−𝑏‖𝐹 =min.
+Step1.BytheSVDCQalgorithm,calculatethesingularvaluedecompositionof 𝐴asfollows,
+𝐴=𝑈
+[Σ𝑟 0
+00
+]
+𝑉𝐻,
+where 𝑈= [𝑢1, ⋯ ,𝑢𝑚
+],Σ𝑟=diag (𝜎1,𝜎2, ⋯ ,𝜎𝑟
+)and 𝑉= [𝑣1, ⋯ ,𝑣𝑛
+].
+Step2.BytheTheorem 6.1,calculatetheminimumnormsolution 𝑥𝐿𝑆,
+𝑥𝐿𝑆= ∑ 𝑟
+𝑡=1 𝑣𝑡𝜎†
+𝑡𝑢𝐻
+𝑡 𝑏.
+𝑥𝐿𝑆=
+𝑟∑
+𝑡=1
+𝑣𝑡𝜎†
+𝑡𝑢𝐻
+𝑡𝑏 (6.2)
+minimizes ‖𝐴𝑥 −𝑏‖𝐹 and has the minimum norm of all minimizers.
+Proof. For any 𝑥 ∈𝐇𝑚×1
+c we have
+‖𝐴𝑥−𝑏‖𝐹 =
+‖‖‖‖‖
+[Σ𝑟 0
+00
+]
+𝑉𝐻𝑥−𝑈𝐻𝑏
+‖‖‖‖‖𝐹
+=
+‖‖‖‖‖
+[Σ𝑟 0
+00
+][ 𝑌𝑟
+𝑌𝑛−𝑟
+]
+−
+[𝑈𝐻
+𝑟 𝑏
+𝑈𝐻
+𝑚−𝑟𝑏
+]‖‖‖‖‖𝐹
+=
+‖‖‖‖‖
+[Σ𝑟𝑌𝑟
+0
+]
+−
+[𝑈𝐻
+𝑟 𝑏
+𝑈𝐻
+𝑚−𝑟𝑏
+]‖‖‖‖‖𝐹
+= ‖‖‖Σ𝑟𝑌𝑟−𝑈𝐻
+𝑟 𝑏‖‖‖𝐹
++ ‖‖‖𝑈𝐻
+𝑚−𝑟𝑏‖‖‖𝐹
+=
+𝑟∑
+𝑡=1
+‖‖‖𝜎𝑡𝑌𝑡−(𝑢𝐻
+𝑡𝑏)‖‖‖
+2
+𝐹
++
+𝑚∑
+𝑡=𝑟+1
+‖‖‖
+(𝑢𝐻
+𝑡𝑏)‖‖‖
+2
+𝐹
+(6.3)
+where 𝑉=[ 𝑉𝑟, 𝑉𝑛−𝑟] =[ 𝑣1, ⋯  , 𝑣𝑛], 𝑈=[ 𝑈𝑟, 𝑈𝑚−𝑟] =[ 𝑢1, ⋯  , 𝑢𝑚], 𝑉𝐻𝑥 =
+[ 𝑌𝑟
+𝑌𝑛−𝑟
+]
+, 𝑌𝑟= 𝑉𝐻
+𝑟 𝑥, 𝑌𝑛−𝑟= 𝑉𝐻
+𝑛−𝑟𝑥. Clearly, if 𝑥solves the CQLS 
+problem, then 𝑌𝑡=𝜎†
+𝑡𝑢𝐻
+𝑡𝑏, 𝑡 =1, ⋯  , 𝑟, at which point the minimum norm solution is 𝑥𝐿𝑆= ∑ 𝑟
+𝑡=1 𝑣𝑡𝜎†
+𝑡𝑢𝐻
+𝑡𝑏. □
+By Theorem6.1, we can obtain a singular value decomposition algorithm for the CQLS problem as follows.
+6.2. Generalized inverse and least squares problem
+Theorem 6.2. Let 𝐴 ∈𝐇𝑚×𝑛
+c , 𝑏 ∈𝐇𝑚×1
+c . Then the general solutions 𝑥and the minimum norm solution 𝑥𝐿𝑆 of (6.1)a r e
+𝑥=𝐴†𝑏+ (𝐼𝑛−𝐴†𝐴)𝑧, (6.4)
+𝑥𝐿𝑆=𝐴†𝑏, (6.5)
+respectively, where 𝑧 ∈𝐇𝑛×1
+c is an any commutative quaternion vector.
+Proof. By (2.3), (2.5), and [20]we  get
+‖𝐴𝑥−𝑏‖𝐹 = ‖(𝐴𝑥−𝑏)𝜎‖𝐹 = ‖𝐴𝜎𝑥𝜎−𝑏𝜎‖𝐹, (6.6)
+and the general solutions of the complex least squares problem (6.6)are
+𝑥𝜎=(𝐴𝜎)† 𝑏𝜎+
+(
+𝐼2𝑛−(𝐴𝜎)† 𝐴𝜎
+)
+𝑍, (6.7)
+where 𝑍∈𝐂2𝑛×2.
+In (6.7), let 𝑍= (𝑍𝑠𝑡
+)=
+[𝑍1 𝑍2
+𝑍2 𝑍1
+]
+∈𝐂2𝑛×2, in which 𝑍1, 𝑍2 are two any complex matrices. By (2.1), we easily know that if let 
+𝑧 =𝑍1 +𝑍2𝑗, then 𝑧 ∈𝐇𝑛
+c is any commutative quaternion vector and 𝑧𝜎=𝑍. Moreover, the minimum norm solution of (6.6)is
+𝑥𝜎
+𝐿𝑆=(𝐴𝜎)† 𝑏𝜎. (6.8)
+Then, according to (2.1), we can obtain the general solutions of (6.1)as
+𝑥=𝐴†𝑏+ (𝐼𝑛−𝐴†𝐴)𝑧. (6.9)
+In addition, the minimum norm solution of (6.1)is
+Applied Mathematics and Computation 460 (2024) 128291
+8
+D. Zhang, T. Jiang, G. Wang et al.
+𝐂𝐐𝐋𝐒 𝐀𝐥𝐠𝐨𝐫𝐢𝐭𝐡𝐦 𝟐.(AgeneralizedinversealgorithmfortheCQLSproblem):Foranycommutativequaternion 𝐴∈𝐇𝑚×𝑛
+c ,
+𝑏∈𝐇𝑚×1
+c .Input 𝐴,𝑏,output 𝑥𝐿𝑆∈𝐇𝑛×1
+c ,suchthat ‖𝐴𝑥−𝑏‖𝐹 =min.
+Step1.BytheGICQalgorithm,calculatethegeneralizedinverseof 𝐴asfollows,
+𝐴† = ̂𝐴1 + ̂𝐴2j,
+where ̂𝐴1 ∈𝐂𝑚×𝑛, ̂𝐴2 ∈𝐂𝑚×𝑛.
+Step2.BytheTheorem 6.2,calculatetheminimumnormsolution 𝑥𝐿𝑆,
+𝑥𝐿𝑆=𝐴†𝑏.
+𝑥𝐿𝑆=𝐴†𝑏. □ (6.10)
+By Theorem6.2, we can obtain a generalized inverse algorithm for the CQLS problem as follows.
+6.3. Numerical examples
+Example 6.1. Given commutative quaternion matrices 𝐴, 𝐵as follows, calculate the SVD, the Moore-Penrose generalized inverse of 
+𝐴, and the minimum norm solution of the CQLS problem by CQLS algorithm 1 and CQLS algorithm 2.
+𝐴=
+⎡
+⎢
+⎢⎣
+1+i+j+3k 2+2i+2j+5k 4−i+j+2k
+2−i−2j−6k 5+i−2j+k 3−i+j−k
+4+i+2j+5k −2−i−j+3k 2+3i+8j−k
+⎤
+⎥
+⎥⎦
+,𝑏 =
+⎡
+⎢
+⎢⎣
+−2+i+j+3k
+8−2+j+4k
+2−i+j+k
+⎤
+⎥
+⎥⎦
+.
+(1) By the CQLS algorithm 1, we can get the singular value decomposition of 𝐴as follows,
+Σ=
+⎡
+⎢
+⎢⎣
+14.6738+2 .3748j 0 0
+07 .8032−0.0064j 0
+00 3 .4242+2 .1036j
+⎤
+⎥
+⎥⎦
+,
+𝑈=
+⎡
+⎢
+⎢⎣
+−0.3014−0.0689i−0.1332j−0.1577k −0 .5275−0.1886i−0.2220j+0 .3674k −0 .2085+0 .0313i+0 .5103j+0 .2425k
+−0.3437−0.1348i+0 .0971j+0 .4578k 0 .0126−0.1812i−0.4119j−0.1672k −0 .2696−0.1233i+0 .0016j−0.5711k
+−0.3825+0 .0564i−0.1983j−0.5636k 0 .3879+0 .3141i−0.0951j−0.1146k −0 .4614−0.0733i−0.0587j−0.0241k
+⎤
+⎥
+⎥⎦
+,
+𝑉=
+⎡
+⎢
+⎢⎣
+−0.6250+0 .0053j 0 .4230+0 .1680j 0 .6249−0.1084j
+−0.3085−0.0601i+0 .1507j+0 .4285k −0 .1079+0 .3219i−0.4206j+0 .2593k −0 .0440−0.3324i+0 .4594j+0 .1095k
+−0.2398−0.2909i−0.3969j+0 .0674k −0 .0466−0.4005i−0.1000j+0 .5108k −0 .2399−0.1928i−0.3563j−0.2017k
+⎤
+⎥
+⎥⎦
+,
+and by Theorem6.1, the minimum norm solution is as follows,
+𝑥𝐿𝑆=
+3∑
+𝑡=1
+𝑣𝑡𝜎†
+𝑡𝑢𝐻
+𝑡𝑏=𝑉Σ†𝑈𝐻𝑏
+=
+⎡
+⎢
+⎢⎣
+−0.7668+0 .1575i+0 .3300j+0 .5997k
+0.8779+0 .4718i−0.5885j+0 .1568k
+0.3128−0.3857i+0 .8571j+0 .0901k
+⎤
+⎥
+⎥⎦
+.
+(2) By the CQLS algorithm 2, the Moore-Penrose generalized inverse matrix of 𝐴as follows,
+𝐴† =
+⎡
+⎢
+⎢⎣
+−0.2067+0 .0463i+0 .1938j−0.0937k −0 .0802−0.0878i+0 .0339j+0 .1908k −0 .1018+0 .0103i+0 .0965j−0.0348k
+0.2028+0 .0509i−0.1279j−0.1389k 0 .0143+0 .1340i+0 .0039j−0.1268k 0 .0647+0 .0898i−0.1104j−0.0434k
+−0.0115+0 .0275i−0.0047j−0.0295k 0 .0406−0.0615i+0 .0454j+0 .0088k −0 .0071−0.0185i+0 .0958j+0 .0417k
+⎤
+⎥
+⎥⎦
+,
+and by Theorem6.2, the minimum norm solution is as follows,
+𝑥𝐿𝑆=𝐴†𝑏=
+⎡
+⎢
+⎢⎣
+−0.7668+0 .1575i+0 .3300j+0 .5997k
+0.8779+0 .4718i−0.5885j+0 .1568k
+0.3128−0.3857i+0 .8571j+0 .0901k
+⎤
+⎥
+⎥⎦
+.
+Example 6.2. Given matrices 𝐴 = 𝐴1 + 𝐴2i + 𝐴3j + 𝐴4k∈ 𝐇𝑚×𝑛
+c , 𝑏 = 𝑏1 + 𝑏2i + 𝑏3j + 𝑏4k∈ 𝐇𝑚×1
+c , the size of the matrix 𝐴is deﬁned as 
+follows.
+𝑔=1∶20,𝑚=50× 𝑔,𝑛=50× 𝑔,
+𝐴1 =rand(m ,n),A2 =rand(m,n),A3 =rand(m,n),A4 =rand(m,n),
+𝑏1 =rand( 𝑚,1),𝑏2 =rand(𝑚,1),𝑏3 =rand( 𝑚,1),𝑏4 =rand( 𝑚,1).
+Consider the CQLS problem ‖𝐴𝑥 −𝑏‖𝐹 =min. We compare CQLS Algorithm 1 and CQLS Algorithm 2 with the algorithms reported 
+in Kosal [11]a n d Ding et al.[15]f o r CPU time and error (𝜖= ‖𝐴𝑥 −𝑏‖𝐹), and the experimental comparison results are shown in 
+Fig.1and Fig.2.
+Applied Mathematics and Computation 460 (2024) 128291
+9
+D. Zhang, T. Jiang, G. Wang et al.
+Fig. 1. PlotofCUPtime.
+Fig. 2. Plotoferrors.
+Fig. 1 shows that the CPU time of CQLS Algorithm 1 and CQLS Algorithm 2 proposed in this paper is less than that of the 
+algorithms reported in Kosal [11]a nd Ding et al.[15]. Fig.2shows that the accuracy of all four algorithms is high, with the errors 
+all less than 10−11. All these computations are performed on an Intel Core i7-7700HQ @ 2.80 GHz/24 GB computer using MATLAB 
+2018b.
+7. Singular value decomposition and color image watermarking
+Example 7.1. Embedding and extraction of color image watermark using SVDCQ
+According to the algorithm in [22], we can give a similar algorithm for color image watermarking by a commutative quaternion 
+matrix. Every color image can be represented by pure imaginary commutative quaternion matrix 𝐴 = 𝑅i +𝐺j +𝐵k∈ 𝐇𝑚×𝑛
+c . We can 
+implement the color image watermark embedding procedure by following the steps below.
+𝐴⇒𝑈Σ𝑉𝐻, Σ+𝛼𝑊 ⇒𝑈𝑤Σ𝑤𝑉𝐻
+𝑤 ,𝑈 Σ𝑤𝑉𝐻 ⇒𝐴𝑤, (7.1)
+where 𝛼=0 .05 is the watermark strength, and 𝐴, 𝑊,  𝐴𝑤 are the original host image, original watermark, and watermarked host 
+image respectively.
+For color image watermark extraction, we can take the following steps.
+̃𝐴⇒ ̃𝑈̃Σ̃𝑉𝐻,𝑈 𝑤̃Σ𝑉𝐻
+𝑤 ⇒𝐶, 1
+𝛼(𝐶−Σ)⇒ ̃𝑊, (7.2)
+where ̃𝐴is a given color image with watermark, ̃𝑊 is the extracted watermark.
+Applied Mathematics and Computation 460 (2024) 128291
+10
+D. Zhang, T. Jiang, G. Wang et al.
+Fig. 3. Originalhostimage 𝐴.
+Fig. 4. Originalwatermark 𝑊.
+Fig. 5. Watermarkedhostimage 𝐴𝑤(53.8924,0.9999).
+From the McMaster database [23], two images are randomly selected, one as the original host image 𝐴(Fig. 3) and the other 
+as the original watermark 𝑊 (Fig.4), and the watermarked host image 𝐴𝑤 and the extracted watermark ̃𝑊 obtained through the 
+above process, as shown below respectively.
+The watermarked host image and extracted watermark are shown in Figs.5and 6, respectively, and their PSNR and SSIM values 
+are listed below. It is observed that our algorithm successfully completes the watermark embedding and watermark extraction, and 
+both the watermarked host image and extracted watermark have high PSNR and SSIM values.
+8. Conclusions
+In this paper, by means of the complex representation of a commutative quaternion matrix, ﬁrstly we study the singular value 
+decomposition of a commutative quaternion matrix and give a theorem and algorithm for the singular value decomposition, where 
+the singular values diﬀer from the complex ﬁeld and the quaternion ring in that they are not nonzero real numbers, but new 
+forms 𝑎 +𝑏j. Secondly, we study the generalized inverse problem, give the generalized inverse of a commutative quaternion and the 
+generalized inverse of a commutative quaternion matrix, and give the corresponding theorems and algorithms.
+Finally, as applications, we apply these algorithms for solving the CQLS problem and the color image watermarking problem of 
+a commutative quaternion matrix. Numerical experiments show that the proposed algorithms are well. The properties of SVD and 
+Applied Mathematics and Computation 460 (2024) 128291
+11
+D. Zhang, T. Jiang, G. Wang et al.
+Fig. 6. Extractedwatermark ̃𝑊(46.4146,0.9992).
+generalized inverse of a commutative quaternion matrix and the algorithms will have potential applications in the study of image 
+processing, Hopﬁeld neural networks, fuzzy recognition, electromagnetics, and digital signal in commutative quaternionic theory. 
+This paper enriches the algebraic matrix properties of a commutative quaternion and will certainly promote the development of a 
+commutative quaternion.
+CRediT authorship contribution statement
+Dong Zhang:Software, Writing – original draft, Writing – review & editing. Tongsong Jiang:Conceptualization, Methodology, 
+Validation. Gang Wang:Formal analysis, Investigation. V.I. Vasil’ev:Project administration, Supervision.
+Data availability
+Data will be made available on request.
+Acknowledgements
+The research of T. Jiang is supported by the Ministry of Science and Higher Education of the Russian Federation, supplementary 
+agreement (No. 075-02-2023-947, February 16, 2023). The research of V.I. Vasil’ev, D. Zhang, and G. Wang is supported by the 
+Russian Science Foundation grant (23-71-30013). The research of D. Zhang is supported by the Chinese Government Scholarship 
+(CSC No. 202108370086). The research of G. Wang is supported by the Chinese Government Scholarship (CSC No. 202008370340).
+References
+[1] C. Segre, The real representations of complex elements and extension to bicomplex systems, Math. Ann. 40 (1892) 413–467.
+[2] Z.G. Jia, M.S. Wei, S.T. Ling, A new structure-preserving method for quaternion Hermitian eigenvalue problems, J. Comput. Appl. Math. 239 (2013) 12–24.
+[3] Z.G. Jia, M.S. Wei, M.X. Zhao, Y. Chen, A new real structure-preserving quaternion QR algorithm, J. Comput. Appl. Math. 343 (2018) 26–48.
+[4] Y. Li, M.S. Wei, F.X. Zhang, J.L. Zhao, A fast structure-preserving method for computing the singular value decomposition of quaternion matrices, Appl. Math. 
+Comput. 235 (2014) 157–167.
+[5] Z.G. Jia, Q.Y. Jin, M.K. Ng, X.L. Zhao, Non-local robust quaternion matrix completion for large-scale color image and video inpainting, IEEE Trans. Image 
+Process. 31 (2022) 3868–3883.
+[6] Z.G. Jia, M.K. Ng, Structure preserving quaternion generalized minimal residual method, SIAM J. Matrix Anal. Appl. 42(2)  (2021) 616–634.
+[7] Z.G. Jia, M.K. Ng, W. Wang, Color image restoration by saturation-value total variation, SIAM J. Imaging Sci. 12(2)  (2019) 972–1000.
+[8] X. Huang, S. Gai, Reduced biquaternion stacked denoising convolutional autoencoder for rgb-d image classiﬁcation, IEEE Signal Process. Lett. 28 (2021) 
+1205–1209.
+[9] S.C. Pei, J.H. Chang, J.J. Ding, Commutative reduced biquaternions and their Fourier transform for signal and image processing applications, IEEE Trans. Signal 
+Process. 52(7)  (2004) 2012–2031.
+[10] S.C. Pei, J.H. Chang, J.J. Ding, Eigenvalues and singular value decompositions of reduced biquaternion matrices, IEEE Trans. Circuits Syst. I, Regul. Pap. 55(9)  
+(2008) 2673–2685.
+[11] H.H. Kösal, M. Tosun, Universal similarity factorization equalities for commutative quaternions and their matrices, Linear Multilinear Algebra 67 (5) (2019) 
+926–938.
+[12] D. Zhang, Z.W. Guo, G. Wang, T.S. Jiang, Algebraic techniques for least squares problems in commutative quaternionic theory, Math. Methods Appl. Sci. 43 
+(2020) 3513–3523.
+[13] D. Zhang, T.S. Jiang, G. Wang, V.I. Vasil’ev, Two novel numerical methods for the diagonalisation of a reduced biquaternion matrix in the reduced biquaternionic 
+algebra, Linear Multilinear Algebra (2022) 1–14.
+[14] F. Catoni, R. Cannata, P. Zampetti, An introduction to commutative quaternions, Adv. Appl. Cliﬀord Algebras 16 (2005) 1–28.
+[15] W.X. Ding, Y. Li, D. Wang, Special least squares solutions of the reduced biquaternion matrix equation 𝐴𝑋=𝐵with applications, Comput. Appl. Math. 40 (2021) 
+1–15.
+[16] Z.W. Guo, D. Zhang, V.I. Vasil’ev, T.S. Jiang, Algebraic techniques for Maxwell’s equations in commutative quaternionic electromagnetics, Eur. Phys. J. Plus 
+137(5)  (2022) 1–12.
+[17] D. Zhang, G. Wang, V.I. Vasil’ev, T.S. Jiang, Algebraic methods for equality constrained least squares problems in commutative quaternionic theory, Math. 
+Methods Appl. Sci. 46(2)  (2023) 1699–1708.
+Applied Mathematics and Computation 460 (2024) 128291
+12
+D. Zhang, T. Jiang, G. Wang et al.
+[18] S.F. Yuan, Y. Tian, M.Z. Li, On Hermitian solutions of the reduced biquaternion matrix equation (𝐴𝑋𝐵, 𝐶𝑋𝐷) =(𝐸, 𝐺), Linear Multilinear Algebra 68(7)  (2020) 
+1355–1373.
+[19] N. Hikmah, M. Bahri, S. Toaha, Cramer rule and adjoint method for reduced biquaternionic linear equations, Glob. J. Pure Appl. Math. 11 (2015) 2247–2254.
+[20] G.H. Golub, C.F. Van Loan, Matrix Computations, 4th edit., The Johns Hopkins University Press, Baltimore, 2013.
+[21] F. Zhang, Quaternions and matrices of quaternions, Linear Algebra Appl. 251 (1997) 21–57.
+[22] A. El-Samie, E. Fathi, An eﬃcient singular value decomposition algorithm for digital audio watermarking, Int. J. Speech Technol. 12(1)  (2009) 27–45.
+[23] McMaster database.[Online]. Available: https://library .mcmaster .ca /databases.

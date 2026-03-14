@@ -1,0 +1,8 @@
+{
+  "seed": 2024,
+  "n_small": 3,
+  "n_main": 8,
+  "bandwidth": 1,
+  "pivot_tol": 1e-12,
+  "diagonal_shift": 1e-10
+}

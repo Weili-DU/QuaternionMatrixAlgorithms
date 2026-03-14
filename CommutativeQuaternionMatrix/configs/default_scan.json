@@ -1,0 +1,9 @@
+{
+  "rcond_grid": [1e-12, 1e-10, 1e-8],
+  "tol_grid": [1e-13, 1e-11],
+  "max_iter_grid": [5, 20, 50],
+  "init_grid": ["pinv", "zero", "random"],
+  "dtype_grid": ["float64", "float32"],
+  "size_grid": [40, 80, 120, 160, 200],
+  "base_seed": 2024
+}

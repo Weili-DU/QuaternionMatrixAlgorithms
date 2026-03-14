@@ -1,0 +1,18 @@
+[
+  {
+    "method": "standard_partial_pivot",
+    "matrix_size": 8,
+    "relative_error": 1.895007685990544e-16,
+    "fill_ratio": 1.1818181818181819,
+    "permutation_change_ratio": 0.75,
+    "small_scale_error": 1.2050094369677335e-17
+  },
+  {
+    "method": "structure_preserving_no_pivot",
+    "matrix_size": 8,
+    "relative_error": 1.0927433739000473e-10,
+    "fill_ratio": 1.0,
+    "permutation_change_ratio": 0.0,
+    "small_scale_error": 1.2050094369677335e-17
+  }
+]
