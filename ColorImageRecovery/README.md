@@ -1,4 +1,5 @@
-# Reproduction12: Yang et al. 2025 稀疏优化彩色图像恢复复现
+# ColorImageRecovery: Yang et al. 2025 稀疏优化彩色图像恢复复现
+
 
 ## 1. 项目说明
 
@@ -13,7 +14,7 @@
 
 ## 2. 目录结构
 
-- `paper/`：论文 PDF 与笔记
+- `paper/`：论文笔记与来源信息（原论文 PDF 因版权原因未随仓库提供）
 - `src/`：算法实现
 - `scripts/`：一键运行脚本
 - `configs/`：参数配置
@@ -22,7 +23,6 @@
 - `outputs/tables`：参数扫描与论文趋势对比表
 - `outputs/logs`：单次运行日志
 - `reproduction_report.md`：复现报告
-- `integration_manifest.md`：总仓库整合清单
 
 ## 3. 环境与安装
 
@@ -74,14 +74,4 @@ python -m unittest discover -s tests -v
 - 单次恢复日志显示：在 `SR=0.2` 下，PSNR/SSIM 相对观测图显著提升
 - 参数扫描显示：`lambda` 存在中间区间优于两端的趋势，与论文“过大或过小都不好”的结论一致
 - `beta1` 和 `rank` 的最优点与论文数值不完全一致，详见 `reproduction_report.md`
-
-## 7. 缺失项与补充建议
-
-若要更严格对齐论文表格（尤其是 Table 2、50 图像统计）仍缺以下资源：
-
-- SIPI / McMaster / BSD 论文同源图像子集及预处理细节
-- 论文中各对比基线（TNNR、TNN-SR、LRQA、QTNN 等）官方实现与固定参数
-- 论文中完整 Quaternion-QDCT/QSVD 细节实现（MATLAB 版本）
-
-建议先补齐上述文件后，再执行同参数同数据对齐实验。
 

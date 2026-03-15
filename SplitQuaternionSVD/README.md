@@ -16,14 +16,13 @@ pip install numpy matplotlib pytest pypdf
 ```
 
 ## 目录结构
-- `paper/`：论文 PDF 与笔记
+- `paper/`：论文笔记与来源信息（原论文 PDF 因版权原因未随仓库提供）
 - `src/`：split quaternion 表示、SVDSQ/SVDLS 核心实现
 - `scripts/`：一键复现入口
 - `configs/`：参数扫描配置
 - `tests/`：最小数值测试
 - `outputs/figures`、`outputs/tables`、`outputs/logs`：复现实验输出
 - `reproduction_report.md`：复现结论与偏差分析
-- `integration_manifest.md`：汇总仓库集成说明
 
 ## 一键运行
 

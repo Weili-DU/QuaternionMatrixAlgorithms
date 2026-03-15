@@ -1,4 +1,4 @@
-# Reproduction9: Ling & Hu 2025 Quaternion CUR 复现
+# QuaternionCUR: Ling & Hu 2025 Quaternion CUR 复现
 
 本仓库复现论文 **Efficient quaternion CUR decomposition based on discrete empirical interpolation method** 的核心流程：  
 - mDEIM 采样  
@@ -8,7 +8,7 @@
 
 ## 目录结构
 
-- `paper/`：论文 PDF 与笔记
+- `paper/`：论文笔记与来源信息（原论文 PDF 因版权原因未随仓库提供）
 - `src/`：算法实现（DEIM、QCUR、实验）
 - `scripts/`：一键运行脚本
 - `configs/`：实验参数
@@ -56,4 +56,4 @@ python -m pytest -q
 
 ## 语言说明
 
-论文代码环境为 MATLAB。当前交付为 Python 可执行实现，用于在本机环境完成“解析-实现-验证-文档”闭环，并保证一键运行与测试可通过。
+论文代码环境为 MATLAB。本仓库使用Python作为复现语言

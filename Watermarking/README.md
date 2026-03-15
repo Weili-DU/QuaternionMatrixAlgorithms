@@ -1,4 +1,4 @@
-# Reproduction3
+# Watermarking
 
 复现论文：**Wang et al., 2025, Color image watermarking scheme based on singular value decomposition of split quaternion matrices**。
 
@@ -6,7 +6,7 @@
 
 ## 1. 目录结构
 
-- `paper/`：论文 PDF
+- `paper/`：论文笔记与来源信息（原论文 PDF 因版权原因未随仓库提供）
 - `src/`：核心算法模块（split quaternion 映射、嵌入提取、攻击、指标）
 - `scripts/`：一键运行脚本
 - `configs/`：复现实验配置
@@ -16,7 +16,6 @@
 - `outputs/tables`：指标表输出
 - `outputs/logs`：运行日志
 - `reproduction_report.md`：复现实验报告
-- `integration_manifest.md`：后续整合说明
 
 ## 2. 环境准备
 

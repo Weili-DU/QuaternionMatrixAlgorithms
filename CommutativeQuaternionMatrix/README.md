@@ -1,9 +1,10 @@
-# Reproduction13: Zhang et al. (2024) 复现
+# CommutativeQuaternionMatrix: Zhang et al. (2024) 复现
+
 
 ## 论文信息
 
 - 标题: On singular value decomposition and generalized inverse of a commutative quaternion matrix and applications
-- 文件: `paper/Zhang2024_CommutativeSVD.pdf`
+- 文件说明: 原始论文 PDF 因版权原因未随仓库提供，当前仅保留论文题目与复现说明
 - 本实现范围: 复现 SVDCQ + GICQ + CQLS 数值趋势，不含图像水印数据集复现
 
 ## 环境与安装

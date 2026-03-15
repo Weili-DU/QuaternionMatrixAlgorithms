@@ -1,10 +1,11 @@
-# Reproduction15
+# Low-RankQuaternionMatrix
+
 
 《低秩四元数矩阵分解模型的优化理论及其应用》复现工程。
 
 ## 目录
 
-- `paper/`：论文PDF与核心笔记
+- `paper/`：论文笔记与来源信息（原论文 PDF 因版权原因未随仓库提供）
 - `src/`：四元数运算、算法实现、实验流程
 - `scripts/`：一键复现实验入口
 - `configs/`：实验参数
@@ -13,7 +14,6 @@
 - `outputs/tables`：对比表与参数扫描表
 - `outputs/logs`：运行摘要
 - `reproduction_report.md`：复现结论
-- `integration_manifest.md`：总仓库整合说明
 
 ## 环境
 
@@ -52,4 +52,3 @@ python -m unittest tests/test_minimal_numeric.py
 
 - `outputs/tables/paper_trend_comparison.csv`
 - `outputs/logs/run_summary.json`
-

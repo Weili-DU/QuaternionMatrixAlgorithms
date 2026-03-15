@@ -1,7 +1,7 @@
 {
   "rows": 6,
   "trend_ok": true,
-  "table": "C:\\Users\\lenovo\\Desktop\\Reproduction9\\outputs\\tables\\table4_like_comparison.csv",
-  "figure": "C:\\Users\\lenovo\\Desktop\\Reproduction9\\outputs\\figures\\trend_k_psnr_vs_c.png",
-  "log": "C:\\Users\\lenovo\\Desktop\\Reproduction9\\outputs\\logs\\run_summary.txt"
+  "table": "C:\\Users\\lenovo\\Desktop\\QuaternionMatrixAlgorithms\\QuaternionCUR\\outputs\\tables\\table4_like_comparison.csv",
+  "figure": "C:\\Users\\lenovo\\Desktop\\QuaternionMatrixAlgorithms\\QuaternionCUR\\outputs\\figures\\trend_k_psnr_vs_c.png",
+  "log": "C:\\Users\\lenovo\\Desktop\\QuaternionMatrixAlgorithms\\QuaternionCUR\\outputs\\logs\\run_summary.txt"
 }

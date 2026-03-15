@@ -1,5 +1,6 @@
 # Wang 2024 Dual Quaternion LU 复现
 
+
 ## 项目目标
 
 - 论文：Algebraic method for LU decomposition of dual quaternion matrix and its corresponding structure-preserving algorithm
@@ -8,7 +9,7 @@
 
 ## 目录结构
 
-- `paper/` 论文 PDF
+- `paper/` 论文笔记与来源信息（原论文 PDF 因版权原因未随仓库提供）
 - `src/` 核心实现（表示层、分解层、重构层、误差评估层）
 - `scripts/` 一键运行脚本
 - `configs/` 实验配置
