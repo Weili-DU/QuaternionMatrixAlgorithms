@@ -1,0 +1,39 @@
+{
+  "algorithm": {
+    "name": "Simultaneous Decomposition of Quaternion Matrices",
+    "version": "1.0.0",
+    "description": "Color image watermarking based on simultaneous decomposition of quaternion matrices"
+  },
+  "parameters": {
+    "embedding_strength": [1e-6, 1e-5, 1e-4, 1e-3, 1e-2],
+    "wavelet_type": "haar",
+    "image_size": {
+      "cover": [512, 512],
+      "watermark": [256, 256]
+    },
+    "num_images": 5
+  },
+  "input_files": {
+    "cover_images": [
+      "../data/apple.png",
+      "../data/balloon..png",
+      "../data/cat.png",
+      "../data/fox.png",
+      "../data/girl.png"
+    ],
+    "watermark_image": "../data/logo.png"
+  },
+  "output_settings": {
+    "format": "png",
+    "directory": "../outputs",
+    "save_original": true,
+    "save_embedded": true,
+    "save_difference": true,
+    "save_watermark": true
+  },
+  "performance": {
+    "compute_psnr": true,
+    "generate_figures": true,
+    "save_logs": true
+  }
+}
